@@ -36,14 +36,9 @@ export class RegisterComponent implements OnInit {
 	onSubmit(stepper: MatStepper): void {
 		const payload = this.theForm.value;
 
-		console.log('Payload =', payload);
-
 		this.authService.register(payload).subscribe({
-			next: (resp: any) => { console.log(resp) },
+			next: () => { stepper.next(); },
 			error: (error: any) => console.error(error)
 		});
-
-		// Put it inside next block when integrating API
-		stepper.next();
 	}
 }
