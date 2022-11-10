@@ -1,1 +1,103 @@
-<p>register works!</p>
+<div class="register">
+	<mat-stepper class="stepper" [linear]="true" #stepper>
+		<mat-step>
+			<form [formGroup]="theForm" class="form">
+				<ng-template matStepLabel>Fill out your name</ng-template>
+
+				<mat-form-field appearance="fill">
+					<mat-label>First Name</mat-label>
+					<input matInput placeholder="Enter First Name" formControlName="firstName" required>
+					<mat-error *ngIf="theForm.get('firstName')?.hasError('required')">
+						First Name is required
+					</mat-error>
+				</mat-form-field>
+
+				<mat-form-field appearance="fill">
+					<mat-label>Last Name</mat-label>
+					<input matInput placeholder="Enter Last Name" formControlName="lastName" required>
+					<mat-error *ngIf="theForm.get('lastName')?.hasError('required')">
+						Last Name is required
+					</mat-error>
+				</mat-form-field>
+
+				<mat-form-field appearance="fill">
+					<mat-label>Cell Number</mat-label>
+					<input matInput placeholder="Enter Cell Number" formControlName="cellNumber" required>
+					<mat-error *ngIf="theForm.get('cellNumber')?.hasError('required')">
+						Cell Number is required
+					</mat-error>
+				</mat-form-field>
+
+				<mat-form-field appearance="fill">
+					<mat-label>Id Number</mat-label>
+					<input matInput placeholder="Enter Id Number" formControlName="idNumber" required>
+					<mat-error *ngIf="theForm.get('idNumber')?.hasError('required')">
+						Id Number is required
+					</mat-error>
+				</mat-form-field>
+
+				<mat-form-field appearance="fill">
+					<mat-label>Email</mat-label>
+					<input matInput type="email" placeholder="Enter Email" formControlName="email" required>
+					<mat-error *ngIf="theForm.get('email')?.hasError('required')">
+						Email is required
+					</mat-error>
+				</mat-form-field>
+
+				<div class="mt-3">
+					<button mat-raised-button color="primary" matStepperNext>Next</button>
+				</div>
+			</form>
+		</mat-step>
+
+		<mat-step label="Terms and conditions">
+			<form [formGroup]="theForm">
+				<h2>Terms of Services</h2>
+
+				<p class="conditions">
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere accusantium ullam eius veritatis, 
+					sequi vel iste necessitatibus cupiditate porro iusto, 
+					praesentium, blanditiis placeat architecto sed perferendis. Eveniet dolore unde assumenda.
+				</p>
+
+				<mat-checkbox formControlName="terms">Accept terms of services</mat-checkbox>
+
+				<div class="mt-3">
+					<button mat-raised-button color="warn" class="mr-3" matStepperPrevious>Back</button>
+					<button mat-raised-button color="primary" matStepperNext>Next</button>
+				</div>
+			</form>
+		</mat-step>
+		
+		<mat-step label="Final Details">
+			<form [formGroup]="theForm" class="form">
+				<mat-form-field appearance="fill">
+					<mat-label>User Name</mat-label>
+					<input matInput placeholder="Enter Username" formControlName="userName" required>
+				</mat-form-field>
+	
+				<mat-form-field appearance="fill">
+					<mat-label>Password</mat-label>
+					<input matInput type="password" placeholder="Enter Password" formControlName="password" required>
+				</mat-form-field>
+	
+				<mat-form-field appearance="fill">
+					<mat-label>Repeat Password</mat-label>
+					<input matInput type="password" placeholder="Enter Repeat Password" formControlName="confirmPassword" required>
+				</mat-form-field>
+			</form>
+
+			<div class="mt-3">
+				<button mat-raised-button color="primary" (click)="onSubmit(stepper)">Next</button>
+			</div>
+		</mat-step>
+
+		<mat-step label="Successful">
+			<p>You have completed the registration.</p>
+
+			<div class="mt-3">
+				<button mat-raised-button color="primary" routerLink="/login">Login</button>
+			</div>
+		</mat-step>
+	</mat-stepper>
+</div>
