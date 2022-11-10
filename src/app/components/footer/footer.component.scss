@@ -1,0 +1,17 @@
+.footer {
+    display: flex;
+	justify-content: space-between;
+    padding: 5rem;
+    background: #333333;
+    color: white;
+   
+	h4 {
+		font-size: 1.8rem;
+		font-weight: 700;
+	}
+
+	p {
+		font-size: 1rem;
+		font-family: arial;
+	}
+}
