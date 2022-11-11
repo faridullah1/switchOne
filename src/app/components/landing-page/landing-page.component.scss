@@ -39,13 +39,13 @@
 		}
   	}
 
-    h1 {
+    h2 {
         display: flex;
         justify-content: center;
-        font-family:arial;
         position: absolute;
-        bottom: 43%;
-        left: 35%;
+		top: 50%;
+		left: 50%;
+		transform: translateX(-50%);
     }
 
    	.cards {
