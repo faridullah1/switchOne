@@ -39,4 +39,10 @@
 			border-bottom: 1px solid gray;
 		}
 	}
+
+	.btn {
+		&:disabled {
+			color: #7e7e7e !important;
+		}
+	}
 }
