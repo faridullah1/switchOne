@@ -1,3 +1,22 @@
-<div class="landing-page">
-	landing page content goes here
+<div class="content">
+    <div class="mask">
+        <img src="https://media.istockphoto.com/photos/portrait-of-black-family-with-kids-relax-on-couch-picture-id1166112327?b=1&k=20&m=1166112327&s=170667a&w=0&h=w1vtOOyU7hoefOGnT8tqTKvkzJoXl0mRu1eu4lOrOmw="
+            alt="Girl in a jacket">
+    </div>
+
+    <ul class="tabs">
+        <li class="tab" (click)="onTabChange(tab)" [class.active]="tab.selected" *ngFor="let tab of tabs">{{ tab.title }}</li>
+    </ul>
+
+    <h1>What Would You Like To do ?</h1>
+
+    <div class="cards">
+        <div class="card" *ngFor="let card of cards;">
+            <h3>{{ card.title }}</h3>
+			
+            <p class="description">{{ card.description }}</p>
+
+            <button class="btn">{{ card.actionText }}</button>
+        </div>
+    </div>
 </div>
