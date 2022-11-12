@@ -19,3 +19,27 @@
 		border-right-color: rgb(111 116 112 / 80%) !important;
 	}
 }
+
+@media only screen and (max-width: 667px) {
+      
+	.footer {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin-top: 110rem;
+		
+		mat-divider {
+			display: none;
+		}
+
+		.about {
+           padding-bottom: 2rem;
+		   margin-top: 2rem;
+		}
+
+		.Contact {
+			padding-bottom: 2rem;
+		}
+	}
+}
