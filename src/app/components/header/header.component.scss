@@ -4,40 +4,91 @@
     align-items: center;
     height: 4.8rem;
 
+	$mob-screen-width: 765px;
+
     .logo {
         display: flex;
         align-items: center;
         margin-left: 10.6rem;
-      
-		.app-name {
-			text-transform: uppercase;
-			font-size: 2.5rem;
-			cursor: pointer;
-	
-			.first-name {
-				color: #03a553;
-			}
-	
-			.second-name {
-				color: #12b3ed;
-			}
+
+		@media screen and (max-width: $mob-screen-width) {
+			margin-left: 4rem;
+		}
+
+		.logo-image {
+			width: 18rem;
 		}
     }
 
 	.nav {
+		display: flex;
+
+		@media screen and (max-width: $mob-screen-width) {
+			display: none;
+		}
+	}
+
+	.nav-left {
 		margin-left: 8rem;
+		align-items: center;
+	}
+
+	.humburger-menu-icon {
+		display: none;
+		font-size: 2rem;
+		cursor: pointer;
+
+		@media only screen and (max-width: $mob-screen-width) {
+			display: block;
+			margin-right: 2rem;
+		}
 	}
 
 	ul {
         display: flex;
         list-style: none;
-        gap: 20px;
+        gap: 2rem;
         margin-right: 6rem;
 		font-size: 1.1rem;
 
 		li {
 			cursor: pointer;
 		}
+
+		@media only screen and (max-width: $mob-screen-width) {
+			margin-right: 0;
+			gap: .5rem;
+		}
     }
+
+	.mobile-nav {
+		position: absolute;
+		z-index: 1;
+		top: 3.3rem;
+		right: 2.6rem;
+		background-color: #eee;
+		width: 15rem;
+		padding: 1rem;
+
+		box-shadow: 0 2px 4px rgb(0 0 0 / 16%), 0 2px 4px rgb(0 0 0 / 20%);
+
+		ul {
+			list-style: none;
+			flex-direction: column;
+			align-items: center;
+
+			li {
+				padding: 0.5rem;
+
+				&:hover {
+					background: gray;
+					border-radius: 4px;
+					width: 80%;
+					text-align: center;
+					color: #fff;
+				}
+			}
+		}
+	}
 }
 
