@@ -14,9 +14,10 @@
 
     <div class="cards">
         <div class="card" *ngFor="let card of cards;">
-            <h3 class="title">{{ card.title }}</h3>
-
-            <p class="description">{{ card.description }}</p>
+            <div>
+				<h3 class="title">{{ card.title }}</h3>
+            	<p class="description">{{ card.description }}</p>
+			</div>
 
             <button class="btn">{{ card.actionText }}</button>
         </div>
