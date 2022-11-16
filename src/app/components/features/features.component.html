@@ -1,0 +1,14 @@
+<div class="container">
+	<h2>What Would You Like To do ?</h2>
+
+	<div class="cards">
+		<div class="card" *ngFor="let card of cards;">
+			<div>
+				<h3 class="title">{{ card.title }}</h3>
+				<p class="description">{{ card.description }}</p>
+			</div>
+
+			<button class="btn">{{ card.actionText }}</button>
+		</div>
+	</div>
+</div>

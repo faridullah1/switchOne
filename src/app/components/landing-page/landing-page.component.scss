@@ -17,8 +17,8 @@
 		}
    	}
 
-   .tabs {
-		position:absolute;
+   	.tabs-abs {
+		position: absolute;
 		top: 40%;
 		left: 25%;
 
@@ -27,7 +27,7 @@
 			top: 50%;
 		}
 
-		@media screen and (max-width: 700px) {
+		@media screen and (max-width: 800px) {
 			top: 20%
 		}
 
@@ -44,90 +44,35 @@
 			background: rgb(241, 234, 234);
 			text-transform: uppercase;
 
-			@media screen and (max-width: 700px) {
+			@media screen and (max-width: 800px) {
 				padding: .5rem 1rem;
 				font-size: 1.4rem;
 			}
 		}
   	}
 
-    h2 {
-        display: flex;
-        justify-content: center;
-        position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translateX(-50%);
+	.tabs {
+		position: relative;
+		top: 40%;
+		left: 25%;
+		width: fit-content;
 
-		@media screen and (max-width: 1000px) {
-			top: 62%;
-		}
-
-		@media screen and (max-width: 700px) {
-			top: 30%;
-			width: 100%;
-		}
-    }
-
-   	.cards {
-		position: absolute;
-		top: 60%;
-		left: 50%;
-		transform: translateX(-50%);
-
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-		width: 60%;
-		gap: 3rem;
-
-		@media screen and (max-width: 1280px) {
-			width: 80%;
-		}
-
-		@media screen and (max-width: 1000px) {
-			position: relative;
-			width: calc(100% - 8rem);
-			transform: none;
-			left: 0;
-			top: 0;
-			margin-top: -10%;
-			margin-bottom: 2rem;
-			padding: 4rem;
-		}
-
-		.card {
-			display: flex;
-			flex-direction: column;
-			justify-content: space-between;
-			border: 1px solid gray;
+		.tab {
+			font-weight: 600;
+			margin: 4px 2px;
+			padding: 1rem 3.2rem;
 			border-radius: 5px;
-			padding: 2rem 2rem 3rem;
-			flex: 0 0 25%;
+			border: none;
+			color: gray;
+			text-align: center;
+			display: inline-block;
+			cursor: pointer;
+			background: rgb(241, 234, 234);
+			text-transform: uppercase;
 
-			@media screen and (max-width: 700px) {
-				flex: 0 0 60%;
-			}
-
-			.title {
-				text-align: center;
-				font-size: 1.6rem;
-				font-weight: 600;
-			}
-
-			.description {
-				font-size: 1.3rem;
-				text-align: center;
-				margin: 1rem 0;
-			}
-
-			.btn {
-				padding: 1rem 0;
-				background: var(--color-primary);
-				color: #fff;
-				border: none;
-				border-radius: 5px;
-				font-size: 1.5rem;
+			@media screen and (max-width: 800px) {
+				padding: .5rem 1rem;
+				font-size: 1.4rem;
 			}
 		}
 	}
@@ -136,4 +81,23 @@
 		color: var(--color-secondary) !important;
 		background: none !important;
 	}
+
+	.tab-content-container {
+		@media screen and (max-width: 1000px) {
+			display: flex;
+			justify-content: center;
+		}
+	}
+
+	.billing-content {
+		position: relative;
+		top: 40%;
+		left: 25%;
+		width: fit-content;
+	}
+}
+
+.billing {
+	background-color: var(--color-primary);
+	height: 90vh;
 }

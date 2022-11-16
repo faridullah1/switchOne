@@ -1,0 +1,31 @@
+.billing-tab {
+	top: 48%;
+	left: 25%;
+	color: #fff;
+	display: flex;
+
+	.logo {
+		width: 10rem;
+	}
+
+	.side-nav {
+		border: 1px solid #eee;
+		padding: 1rem;
+		margin-right: 2rem;
+
+		ul {
+			list-style: none;
+
+			li {
+				margin-bottom: 1rem;
+				font-size: 1.3rem;
+				color: #eee;
+				cursor: pointer;
+			}
+		}
+	}
+
+	.active {
+		color: var(--color-secondary) !important;
+	}
+}

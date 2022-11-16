@@ -1,0 +1,17 @@
+<div class="billing-tab">
+	<nav class="side-nav">
+		<img src="/assets/images/logo.jpg" alt="logo" class="logo">
+
+		<ul>
+			<li *ngFor="let tab of tabs" 
+				routerLinkActive="active"
+				[routerLink]="'/billing/' + tab.route">
+				{{ tab.title }}
+			</li>
+		</ul>
+	</nav>
+
+	<div class="content">
+		<router-outlet></router-outlet>
+	</div>
+</div>

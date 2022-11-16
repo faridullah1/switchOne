@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Card, Tab } from 'src/app/models';
+import { NavigationEnd, Router } from '@angular/router';
+import { Component } from '@angular/core';
+import { Tab } from 'src/app/models';
+import { filter } from 'rxjs';
 
 
 @Component({
@@ -7,33 +9,22 @@ import { Card, Tab } from 'src/app/models';
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.scss']
 })
-export class LandingPageComponent implements OnInit {
+export class LandingPageComponent {
 	tabs: Tab[] = [];
-	cards: Card[] = [];
+	path: string = '';
 	
-	constructor() {
+	constructor(private router: Router) 
+	{
 		this.tabs = [
-			{ title: 'Features', selected: true },
-			{ title: 'How to use', selected: false },
-			{ title: 'Security', selected: false },
-			{ title: 'Pay and buy', selected: false },
+			{ name: 'features', title: 'Features', selected: false, route: 'features' },
+			{ name: 'how_to_use', title: 'How to use', selected: false, route: 'how_to_use' },
+			{ name: 'security', title: 'Security', selected: false, route: 'security' },
+			{ name: 'billing', title: 'Pay and buy', selected: false, route: 'billing' },
 		];
 
-		this.cards = [
-			{ title: 'Pay Bills & Account', description: 'pay for your bills and account, including TV license and DSTV, By simple using the refrence Number found on your bills, Invoice or account statement', actionText: 'Bills and Accounts'},
-			{ title: 'Pre Paid Electicity, Water or Gas', description: 'Buy pre paid Electricity or gas by simple adding your meter number and choosing the amount you would like to purchase', actionText: 'Prepaid'},
-			{ title: 'Pay Trafic Fine', description: 'Search and pay for trafic fine Using your ID number or trafic fine refrence number', actionText: 'Fines'}
-		]
-	}
-
-	ngOnInit(): void {
-	}
-
-	onTabChange(tab: Tab): void {
-		for (let t of this.tabs) {
-			t.selected = false;
-		}
-
-		tab.selected = true;
+		router.events.pipe(filter(event => event instanceof NavigationEnd))
+			.subscribe((event: any) => {
+				this.path = event.url.split('/')[1];
+			});
 	}
 }
