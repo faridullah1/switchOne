@@ -52,9 +52,9 @@
   	}
 
 	.tabs {
-		display: flex;
-		align-items: center;
-		justify-content: center;
+		position: relative;
+		top: 40%;
+		left: 25%;
 
 		.tab {
 			font-weight: 600;
@@ -88,8 +88,21 @@
 		}
 	}
 
+	.billing-content {
+		position: relative;
+		top: 40%;
+		left: 25%;
+	}
+
 	.billing-tab {
+		top: 48%;
+		left: 25%;
 		color: #fff;
+
+		.tab-content-container {
+			position: relative;
+			top: 48%;
+		}
 	}
 }
 
