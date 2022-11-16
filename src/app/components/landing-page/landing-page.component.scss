@@ -17,8 +17,8 @@
 		}
    	}
 
-   .tabs {
-		position:absolute;
+   	.tabs-abs {
+		position: absolute;
 		top: 40%;
 		left: 25%;
 
@@ -51,6 +51,31 @@
 		}
   	}
 
+	.tabs {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		.tab {
+			font-weight: 600;
+			margin: 4px 2px;
+			padding: 1rem 3.2rem;
+			border-radius: 5px;
+			border: none;
+			color: gray;
+			text-align: center;
+			display: inline-block;
+			cursor: pointer;
+			background: rgb(241, 234, 234);
+			text-transform: uppercase;
+
+			@media screen and (max-width: 800px) {
+				padding: .5rem 1rem;
+				font-size: 1.4rem;
+			}
+		}
+	}
+
 	.active {
 		color: var(--color-secondary) !important;
 		background: none !important;
@@ -62,4 +87,13 @@
 			justify-content: center;
 		}
 	}
+
+	.billing-tab {
+		color: #fff;
+	}
+}
+
+.billing {
+	background-color: var(--color-primary);
+	height: 90vh;
 }

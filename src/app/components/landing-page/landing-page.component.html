@@ -1,10 +1,10 @@
-<div class="content">
-    <div class="mask">
+<div class="content" [class.billing]="selectedTab.name === 'billing'">
+    <div class="mask" *ngIf="selectedTab.name !== 'billing'">
         <img src="https://media.istockphoto.com/photos/portrait-of-black-family-with-kids-relax-on-couch-picture-id1166112327?b=1&k=20&m=1166112327&s=170667a&w=0&h=w1vtOOyU7hoefOGnT8tqTKvkzJoXl0mRu1eu4lOrOmw="
             alt="Girl in a jacket">
     </div>
 
-    <ul class="tabs">
+    <ul [ngClass]="selectedTab.name === 'billing' ? 'tabs' : 'tabs-abs'">
         <li class="tab" [class.active]="tab.selected" (click)="onTabChange(tab)" *ngFor="let tab of tabs">
 			{{ tab.title }}
 		</li>
