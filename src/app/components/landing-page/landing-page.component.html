@@ -11,20 +11,22 @@
     </ul>
 
 	<div class="tab-content-container" [ngSwitch]="selectedTab.name">
-		<div *ngSwitchCase="'features'">
+		<ng-container *ngSwitchCase="'features'">
 			<app-features></app-features>
-		</div>
+		</ng-container>
 
 		<ng-container *ngSwitchCase="'how_to_use'">
 			<app-how-to-use></app-how-to-use>
 		</ng-container>
 
-		<div *ngSwitchCase="'security'">
-			Security
-		</div>
+		<ng-container *ngSwitchCase="'security'">
+			<app-security></app-security>
+		</ng-container>
 
-		<div *ngSwitchCase="'billing'">
-			Billing
-		</div>
+		<ng-container *ngSwitchCase="'billing'">
+			<div class="billing-tab">
+				Billing
+			</div>
+		</ng-container>
 	</div>
 </div>
