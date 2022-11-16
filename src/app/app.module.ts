@@ -13,6 +13,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { FeaturesComponent } from './components/features/features.component';
+import { HowToUseComponent } from './components/how-to-use/how-to-use.component';
+import { SecurityComponent } from './components/security/security.component';
+import { BillingComponent } from './components/billing/billing.component';
 
 
 @NgModule({
@@ -23,7 +27,11 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     RegisterComponent,
     LandingPageComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    FeaturesComponent,
+    HowToUseComponent,
+    SecurityComponent,
+    BillingComponent
   ],
   imports: [
     BrowserModule,
