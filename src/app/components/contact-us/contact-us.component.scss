@@ -1,0 +1,81 @@
+.container {
+    width:80%;
+    padding-left: 11rem;
+    padding-bottom: 2rem;
+
+    .heading{
+        font-size: 2rem;
+        margin-top: 4rem;
+    }
+
+    .description {
+        font-size: 1.5rem;
+        margin-top: 1rem;
+        font-weight: 500;
+    }
+
+    .list {
+        margin-left: 1.6rem;
+
+        li{
+            font-size: 1rem;
+        }
+    }
+
+    .sub-heading {
+        margin-top: 4rem;
+    }
+
+    .sub-description {
+        font-size: 1.1rem;
+        font-weight: 500;
+    }
+
+	.contact-form {
+		display: flex;
+		flex-direction: column;
+		
+		.form-input {
+			display: flex;
+			gap: 2rem;
+			padding-top: 2rem;
+
+			.input-field {
+				padding: 1rem 20rem 1rem 1rem;
+			}
+
+			.subject {
+
+				input {
+					padding: 1rem 60.5rem 2rem 1rem;
+				}
+			}
+
+			.Message {
+
+				input {
+					padding: 2rem 60.5rem 7rem 1rem;
+				}
+			}
+
+		}
+
+		.btn {
+			display: flex;
+			justify-content: right;
+			margin-right: 49rem;
+			margin-top: 1.5rem;
+
+			.submit {
+				padding: 0.8rem 3rem 0.8rem 3rem;
+				background-color: var(--color-primary);
+				color: #fff;
+				border: none;
+				border-radius: 2px;
+				font-weight: 600;
+				letter-spacing: 1px;
+			}
+		}
+
+	}
+}
