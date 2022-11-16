@@ -1,17 +1,3 @@
 <div class="container">
-	<h2>Pay Bill</h2>
-
-	<ng-container *ngIf="bills.length > 0; else noBills">
-		<div class="bill" *ngFor="let bill of bills">
-			<div class="reference-number">{{ bill.referenceNumber}}</div>
-			<div>{{ bill.alias}}</div>
-		</div>
-
-		<button class="btn" routerLink="/add_bill">Add Bill</button>
-	</ng-container>
-
-	<ng-template #noBills>
-		<div class="no-bill">No bills added</div>
-		<button class="btn" routerLink="/add_bill">Add Bill</button>
-	</ng-template>
+	Account page under development
 </div>

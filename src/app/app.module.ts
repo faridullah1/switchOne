@@ -19,6 +19,7 @@ import { SecurityComponent } from './components/security/security.component';
 import { BillingComponent } from './components/billing/billing.component';
 import { AddBillComponent } from './components/billing/add-bill/add-bill.component';
 import { AccountsComponent } from './components/billing/accounts/accounts.component';
+import { PrepaidComponent } from './components/billing/prepaid/prepaid.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { AccountsComponent } from './components/billing/accounts/accounts.compon
     SecurityComponent,
     BillingComponent,
     AddBillComponent,
-    AccountsComponent
+    AccountsComponent,
+    PrepaidComponent
   ],
   imports: [
     BrowserModule,
