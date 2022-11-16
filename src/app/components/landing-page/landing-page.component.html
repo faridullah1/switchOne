@@ -12,32 +12,12 @@
 
 	<div class="tab-content-container" [ngSwitch]="selectedTab.name">
 		<div *ngSwitchCase="'features'">
-			<h2>What Would You Like To do ?</h2>
-
-			<div class="cards">
-				<div class="card" *ngFor="let card of cards;">
-					<div>
-						<h3 class="title">{{ card.title }}</h3>
-						<p class="description">{{ card.description }}</p>
-					</div>
-		
-					<button class="btn">{{ card.actionText }}</button>
-				</div>
-			</div>
+			<app-features></app-features>
 		</div>
 
-		<div class="how_to_use" *ngSwitchCase="'how_to_use'">
-			<div class="text">
-				<div class="heading">
-					Register for free
-				</div>
-
-				<div class="description">
-					Registration is free and you can start paying bills instantly. Simply click on register and compete the form
-				</div>
-			</div>
-			<img class="image" src="/assets/images/lcd.jpg" alt="LCD">
-		</div>
+		<ng-container *ngSwitchCase="'how_to_use'">
+			<app-how-to-use></app-how-to-use>
+		</ng-container>
 
 		<div *ngSwitchCase="'security'">
 			Security
