@@ -1,0 +1,23 @@
+.container {
+	height: 70vh;
+	background-color: var(--color-primary);
+	color: #fff;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	.form {
+		display: flex;
+		flex-direction: column;
+
+		.field {
+			padding: 1rem 2rem;
+			
+			&:not(:last-child) {
+				margin-bottom: 2rem;
+			}
+		}
+	}
+}

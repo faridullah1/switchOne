@@ -24,12 +24,12 @@ const routes: Routes = [
 				path: 'billing', component: BillingComponent, 
 				children: [
 					{ path: '', redirectTo: 'accounts', pathMatch: 'prefix' },
-					{ path: 'accounts', component: AccountsComponent },
-					{ path: 'add_bill', component: AddBillComponent },
+					{ path: 'accounts', component: AccountsComponent }
 				]
 			},
 		]
 	},
+	{ path: 'add_bill', component: AddBillComponent },
 	{ path: 'login', component: LoginComponent },
 	{ path: 'register', component: RegisterComponent },
 	{ path: 'contact-us', component: ContactUsComponent },

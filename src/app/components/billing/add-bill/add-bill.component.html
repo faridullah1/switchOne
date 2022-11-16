@@ -1,1 +1,10 @@
-<p>add-bill works!</p>
+<div class="container">
+	<h2>Add a bill</h2>
+	
+	<form [formGroup]="addBillForm" class="form">
+		<input class="field" type="text" placeholder="Reference Number" formControlName="referenceNumber">
+		<input class="field" type="text" placeholder="Alias" formControlName="alias">
+
+		<button class="btn" (click)="onSubmit()" [disabled]="addBillForm.invalid">Submit</button>
+	</form>
+</div>

@@ -1,15 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+
 
 @Component({
   selector: 'app-add-bill',
   templateUrl: './add-bill.component.html',
   styleUrls: ['./add-bill.component.scss']
 })
-export class AddBillComponent implements OnInit {
+export class AddBillComponent {
+	addBillForm: FormGroup;
 
-  constructor() { }
+	constructor() {
+		this.addBillForm = new FormGroup({
+			referenceNumber: new FormControl('', Validators.required),
+			alias: new FormControl('', Validators.required),
+		});
+	}
 
-  ngOnInit(): void {
-  }
-
+	onSubmit(): void {
+		console.log(this.addBillForm.value);
+	}
 }
