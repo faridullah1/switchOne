@@ -9,25 +9,14 @@ import { Tab } from 'src/app/models';
 })
 export class BillingComponent {
 	tabs: Tab[];
-	selectedTab: Tab;
+	bills: any[] = [];
 
 	constructor() {
 		this.tabs = [
-			{ name: 'bills_accounts', title: 'Bills & Accounts', selected: false },
-			{ name: 'prepaid', title: 'Prepaid', selected: false },
-			{ name: 'fines', title: 'Fines', selected: false },
-			{ name: 'history', title: 'History', selected: true },
+			{ name: 'bills_accounts', title: 'Bills & Accounts', selected: false, route: 'accounts' },
+			{ name: 'prepaid', title: 'Prepaid', selected: false, route: 'prepaid' },
+			{ name: 'fines', title: 'Fines', selected: false, route: 'fines' },
+			{ name: 'history', title: 'History', selected: true, route: 'history' },
 		];
-
-		this.selectedTab = this.tabs[0];
-	}
-
-	onTabChange(tab: Tab): void {
-		for (let t of this.tabs) {
-			t.selected = false;
-		}
-
-		tab.selected = true;
-		this.selectedTab = tab;
 	}
 }

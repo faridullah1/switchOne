@@ -1,29 +1,18 @@
-<div class="content" [class.billing]="selectedTab.name === 'billing'">
-    <div class="mask" *ngIf="selectedTab.name !== 'billing'">
+<div class="content" [class.billing]="path === 'billing'">
+    <div class="mask" *ngIf="path !== 'billing'">
         <img src="/assets/images/family.jpg" alt="Family">
     </div>
 
-    <ul [ngClass]="selectedTab.name === 'billing' ? 'tabs' : 'tabs-abs'">
-        <li class="tab" [class.active]="tab.selected" (click)="onTabChange(tab)" *ngFor="let tab of tabs">
+    <ul [ngClass]="path === 'billing' ? 'tabs' : 'tabs-abs'">
+        <li class="tab" 
+			[routerLink]="tab.route" 
+			routerLinkActive="active" 
+			*ngFor="let tab of tabs">
 			{{ tab.title }}
 		</li>
     </ul>
 
-	<div class="tab-content-container" [class.billing-content]="selectedTab.name === 'billing'" [ngSwitch]="selectedTab.name">
-		<ng-container *ngSwitchCase="'features'">
-			<app-features></app-features>
-		</ng-container>
-
-		<ng-container *ngSwitchCase="'how_to_use'">
-			<app-how-to-use></app-how-to-use>
-		</ng-container>
-
-		<ng-container *ngSwitchCase="'security'">
-			<app-security></app-security>
-		</ng-container>
-
-		<ng-container *ngSwitchCase="'billing'">
-			<app-billing></app-billing>
-		</ng-container>
+	<div class="tab-content-container" [class.billing-content]="path === 'billing'">
+		<router-outlet></router-outlet>
 	</div>
 </div>

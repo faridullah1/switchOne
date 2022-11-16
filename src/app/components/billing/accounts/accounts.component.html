@@ -1,0 +1,13 @@
+<div class="container">
+	<h2>Pay Bill</h2>
+
+	<ng-container *ngIf="bills.length > 0; else noBills">
+		Bills
+	</ng-container>
+
+	<ng-template #noBills>
+		No bills added
+
+		<button routerLink="/billing/add_bill">Add Bill</button>
+	</ng-template>
+</div>

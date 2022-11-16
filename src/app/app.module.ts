@@ -17,6 +17,8 @@ import { FeaturesComponent } from './components/features/features.component';
 import { HowToUseComponent } from './components/how-to-use/how-to-use.component';
 import { SecurityComponent } from './components/security/security.component';
 import { BillingComponent } from './components/billing/billing.component';
+import { AddBillComponent } from './components/billing/add-bill/add-bill.component';
+import { AccountsComponent } from './components/billing/accounts/accounts.component';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { BillingComponent } from './components/billing/billing.component';
     FeaturesComponent,
     HowToUseComponent,
     SecurityComponent,
-    BillingComponent
+    BillingComponent,
+    AddBillComponent,
+    AccountsComponent
   ],
   imports: [
     BrowserModule,

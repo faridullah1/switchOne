@@ -1,5 +1,7 @@
+import { NavigationEnd, Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { Tab } from 'src/app/models';
+import { filter } from 'rxjs';
 
 
 @Component({
@@ -9,25 +11,20 @@ import { Tab } from 'src/app/models';
 })
 export class LandingPageComponent {
 	tabs: Tab[] = [];
-	selectedTab: Tab;
+	path: string = '';
 	
-	constructor() {
+	constructor(private router: Router) 
+	{
 		this.tabs = [
-			{ name: 'features', title: 'Features', selected: false },
-			{ name: 'how_to_use', title: 'How to use', selected: false },
-			{ name: 'security', title: 'Security', selected: false },
-			{ name: 'billing', title: 'Pay and buy', selected: true },
+			{ name: 'features', title: 'Features', selected: false, route: 'features' },
+			{ name: 'how_to_use', title: 'How to use', selected: false, route: 'how_to_use' },
+			{ name: 'security', title: 'Security', selected: false, route: 'security' },
+			{ name: 'billing', title: 'Pay and buy', selected: false, route: 'billing' },
 		];
 
-		this.selectedTab = this.tabs[3];
-	}
-
-	onTabChange(tab: Tab): void {
-		for (let t of this.tabs) {
-			t.selected = false;
-		}
-
-		tab.selected = true;
-		this.selectedTab = tab;
+		router.events.pipe(filter(event => event instanceof NavigationEnd))
+			.subscribe((event: any) => {
+				this.path = event.url.split('/')[1];
+			});
 	}
 }
