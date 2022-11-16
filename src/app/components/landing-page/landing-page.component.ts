@@ -15,11 +15,11 @@ export class LandingPageComponent {
 		this.tabs = [
 			{ name: 'features', title: 'Features', selected: false },
 			{ name: 'how_to_use', title: 'How to use', selected: false },
-			{ name: 'security', title: 'Security', selected: true },
-			{ name: 'billing', title: 'Pay and buy', selected: false },
+			{ name: 'security', title: 'Security', selected: false },
+			{ name: 'billing', title: 'Pay and buy', selected: true },
 		];
 
-		this.selectedTab = this.tabs[2];
+		this.selectedTab = this.tabs[3];
 	}
 
 	onTabChange(tab: Tab): void {

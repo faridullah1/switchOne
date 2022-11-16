@@ -1,1 +1,19 @@
-<p>billing works!</p>
+<div class="billing-tab">
+	<nav class="side-nav">
+		<img src="/assets/images/logo.jpg" alt="logo" class="logo">
+
+		<ul>
+			<li *ngFor="let tab of tabs" [class.active]="tab === selectedTab" (click)="onTabChange(tab)">
+				{{ tab.title }}
+			</li>
+		</ul>
+	</nav>
+
+	<div class="content" [ngSwitch]="selectedTab.name">
+		<ng-container *ngSwitchCase="'bills_accounts'">
+			<div class="content">
+				<h2>Pay Bill</h2>
+			</div>
+		</ng-container>	
+	</div>
+</div>
