@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LocalStorageService } from 'src/app/services/localStorage.service';
 
 
 @Component({
@@ -9,5 +10,13 @@ import { Component } from '@angular/core';
 export class AccountsComponent {
 	bills: any[] = [];
 	
-  	constructor() { }
+  	constructor(private localStorageService: LocalStorageService) {
+		const bills = JSON.parse(localStorageService.getAllBills());
+		
+		if (bills) {
+			this.bills = bills;
+		}
+
+		console.log('Bills =', this.bills);
+	}
 }
