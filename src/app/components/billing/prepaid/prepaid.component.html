@@ -1,5 +1,5 @@
 <div class="container">
-	<h2 class="mb-3">Pay Bill</h2>
+	<h2 class="mb-3">{{ title }}</h2>
 
 	<ng-container *ngIf="stage === 'SelectBill'">
 		<ng-container *ngIf="data.length > 0; else noBills">
@@ -46,8 +46,49 @@
 	</ng-container>
 
 	<ng-container *ngIf="stage === 'MeterAmountEntry'">
-		current Transaction
+		<div class="meter-payment">
+			<div class="flex">
+				<div class="meter-info">
+					<div class="heading">Current Transaction</div>
+					<input class="field" type="text" placeholder="Enter Amount (R)">
+				</div>
 
-		<button class="btn">Continue</button>
+				<div class="amount-pick">
+					R100
+				</div>
+			</div>
+	
+			<div class="flex">
+				<button class="btn mr-3">Back</button>
+				<button class="btn" (click)="onConfirm()">Confirm</button>
+			</div>
+		</div>
+	</ng-container>
+
+	<ng-container *ngIf="stage === 'ConfirmPay'">
+		<div class="meter-payment">
+			<div class="meter-info">
+				<div class="heading">Current Transaction</div>
+				<input class="field" type="text" placeholder="Enter Amount (R)">
+			</div>
+	
+			<div class="flex">
+				<button class="btn mr-3">Back</button>
+				<button class="btn" (click)="onPayment()">Pay</button>
+			</div>
+		</div>
+	</ng-container>
+
+	<ng-container *ngIf="stage === 'CardDetails'">
+		<div class="card-details">
+			<input class="field mb-3" type="text" placeholder="Card Number">
+			<input class="field mb-3" type="text" placeholder="Card Holder">
+			<input class="field mb-3" type="text" placeholder="CVC Number">
+	
+			<div class="flex">
+				<button class="btn mr-3">Back</button>
+				<button class="btn" (click)="onPayment()">Continue</button>
+			</div>
+		</div>
 	</ng-container>
 </div>

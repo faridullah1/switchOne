@@ -10,6 +10,7 @@ import { BillingService } from './../../../services/billing.service';
   styleUrls: ['./prepaid.component.scss']
 })
 export class PrepaidComponent implements OnInit {
+	title: string = 'Pay Bill';
 	data: any[] = [];
 	stage: BillingStages = 'SelectBill';
 
@@ -49,5 +50,16 @@ export class PrepaidComponent implements OnInit {
 	onSelectMeter(meter: any): void {
 		this.stage = 'MeterAmountEntry';
 		this.billingService.nextStage('MeterAmountEntry');
+	}
+
+	onConfirm(): void {
+		this.stage = 'ConfirmPay';
+		this.billingService.nextStage('ConfirmPay');
+	}
+
+	onPayment(): void {
+		this.title = 'Card Details';
+		this.stage = 'CardDetails';
+		this.billingService.nextStage('CardDetails');
 	}
 }

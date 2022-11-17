@@ -14,6 +14,20 @@
 		}
 	}
 
+	.meter-payment {
+		display: flex;
+		flex-direction: column;
+
+		.meter-info {
+			margin-right: 4rem;
+		}
+	}
+
+	.card-details {
+		display: flex;
+		flex-direction: column;
+	}
+	
 	.field {
 		padding: 1rem 2rem;
 		background: none;
