@@ -15,7 +15,6 @@ export class BillingComponent {
 		this.tabs = [
 			{ name: 'bills_accounts', title: 'Bills & Accounts', selected: false, route: 'accounts' },
 			{ name: 'prepaid', title: 'Prepaid', selected: false, route: 'prepaid' },
-			{ name: 'fines', title: 'Fines', selected: false, route: 'fines' },
 			{ name: 'history', title: 'History', selected: true, route: 'history' },
 		];
 	}
