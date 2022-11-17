@@ -1,7 +1,6 @@
 .container {
-    width:80%;
-    padding-left: 11rem;
-    padding-bottom: 2rem;
+    width: 80%;
+	margin: 0 auto 2rem;
 
     .heading{
         font-size: 2rem;
@@ -40,34 +39,23 @@
 			gap: 2rem;
 			padding-top: 2rem;
 
+			@media screen and (max-width: 800px) {
+				flex-direction: column;
+			}
+
 			.input-field {
-				padding: 1rem 20rem 1rem 1rem;
+				padding: 1rem 2rem;
+				width: calc(100% - 4rem);
 			}
-
-			.subject {
-
-				input {
-					padding: 1rem 60.5rem 2rem 1rem;
-				}
-			}
-
-			.Message {
-
-				input {
-					padding: 2rem 60.5rem 7rem 1rem;
-				}
-			}
-
 		}
 
-		.btn {
+		.actions {
+			margin-top: 2rem;
 			display: flex;
-			justify-content: right;
-			margin-right: 49rem;
-			margin-top: 1.5rem;
+			justify-content: flex-end;
 
 			.submit {
-				padding: 0.8rem 3rem 0.8rem 3rem;
+				padding: 0.8rem 3rem;
 				background-color: var(--color-primary);
 				color: #fff;
 				border: none;
