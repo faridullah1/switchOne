@@ -1,3 +1,13 @@
+:host {
+	@media screen and (max-width: 500px) {
+		width: 80%;
+	}
+
+	@media screen and (max-width: 400px) {
+		width: 90%;
+	}
+}
+
 .how_to_use {
 	background-color: var(--color-primary);
 	position: absolute;
@@ -35,15 +45,24 @@
 		margin-top: -15rem;
 	}
 
+	@media screen and (max-width: 400px) {
+		margin-top: -9rem;
+	}
+
 	.text {
+		margin-top: 4rem;
+		width: 30rem;
+
 		@media screen and (max-width: 650px) {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
 		}
 
-		margin-top: 4rem;
-		width: 30rem;
+		@media screen and (max-width: 500px) {
+			margin-bottom: 4rem;
+			width: 100%;
+		}
 
 		.heading {
 			font-size: 2rem;
