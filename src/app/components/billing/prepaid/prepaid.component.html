@@ -1,9 +1,9 @@
 <div class="container">
-	<h2>Pay Bill</h2>
+	<h2 class="mb-3">Pay Bill</h2>
 
-	<ng-container *ngIf="bills.length > 0; else noBills">
-		<ng-container *ngIf="stage === 'BillList'">
-			<div class="bill" *ngFor="let bill of bills" (click)="onSelectBill(bill)">
+	<ng-container *ngIf="stage === 'SelectBill'">
+		<ng-container *ngIf="data.length > 0; else noBills">
+			<div class="bill" *ngFor="let bill of data" (click)="onSelectBill(bill)">
 				<div class="reference-number">{{ bill.referenceNumber}}</div>
 				<div>{{ bill.alias}}</div>
 			</div>
@@ -13,17 +13,41 @@
 			</div>
 		</ng-container>
 
-		<ng-container *ngIf="stage === 'AmountEntry'">
-			<input type="text" placeholder="Ener Amount">
-
-			<div class="actions">
-				<button class="btn" routerLink="/payment_method">Continue</button>
-			</div>
-		</ng-container>
+		<ng-template #noBills>
+			<div class="no-bill">No bills added</div>
+			<button class="btn" routerLink="/add_bill">Add Bill</button>
+		</ng-template>
 	</ng-container>
 
-	<ng-template #noBills>
-		<div class="no-bill">No bills added</div>
-		<button class="btn" routerLink="/add_bill">Add Bill</button>
-	</ng-template>
+	<ng-container *ngIf="stage === 'BillAmountEntry'">
+		<input class="field" type="text" placeholder="Ener Amount">
+
+		<div class="actions">
+			<button class="btn" routerLink="/payment_method">Continue</button>
+		</div>
+	</ng-container>
+
+	<ng-container *ngIf="stage === 'SelectMeter'">
+		<ng-container *ngIf="data.length > 0; else noMeter">
+			<div class="bill" *ngFor="let meter of data" (click)="onSelectMeter(meter)">
+				<div class="reference-number">{{ meter.meterSerial}}</div>
+				<div>{{ meter.alias}}</div>
+			</div>
+	
+			<div class="actions">
+				<button class="btn" routerLink="/add_meter">Add Meter</button>
+			</div>
+		</ng-container>
+
+		<ng-template #noMeter>
+			<div class="no-bill">No meter added</div>
+			<button class="btn" routerLink="/add_meter">Add Meter</button>
+		</ng-template>
+	</ng-container>
+
+	<ng-container *ngIf="stage === 'MeterAmountEntry'">
+		current Transaction
+
+		<button class="btn">Continue</button>
+	</ng-container>
 </div>

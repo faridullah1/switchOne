@@ -25,7 +25,7 @@ export class AddBillComponent {
 		console.log(this.addBillForm.value);
 
 		// Currently I am storing data in local storage, please replace it with server API
-		this.localStorageService.saveBill(this.addBillForm.value);
-		this.router.navigateByUrl('/billing/accounts');
+		this.localStorageService.setItem('bills', this.addBillForm.value);
+		this.router.navigateByUrl('/billing/prepaid');
 	}
 }

@@ -1,6 +1,8 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { PaymentMethod } from 'src/app/models';
+import { BillingService } from './../../../services/billing.service';
+
 
 @Component({
   selector: 'app-payment-method',
@@ -10,7 +12,7 @@ import { PaymentMethod } from 'src/app/models';
 export class PaymentMethodComponent implements OnInit {
 	paymentMethods: PaymentMethod[];
 
-	constructor(private router: Router) 
+	constructor(private router: Router, private billingService: BillingService) 
 	{
 		this.paymentMethods = [
 			{ name: 'mastercard', title: 'Master Card', image: '/assets/images/abc.jpg' },
@@ -22,6 +24,7 @@ export class PaymentMethodComponent implements OnInit {
 	}
 
 	onSelectPaymentMethod(method: PaymentMethod): void {
+		this.billingService.nextStage('SelectMeter');
 		this.router.navigateByUrl('/billing/prepaid');
 	}
 }

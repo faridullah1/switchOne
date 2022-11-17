@@ -14,20 +14,28 @@
 		}
 	}
 
+	.field {
+		padding: 1rem 2rem;
+		background: none;
+		border: 1px solid #e2cccc;
+		color: #fff;
+		outline: none;
+	}
+
 	.actions {
 		display: flex;
 		justify-content: flex-end;
+	}
 
-		.btn {
-			background-color: var(--color-secondary);
-			border: none;
-			padding: .8rem 1rem;
-			border-radius: 6px;
-			cursor: pointer;
-			color: #fff;
-			font-size: 1.6rem;
-	
-			margin-top: 2rem;
-		}
+	.btn {
+		background-color: var(--color-secondary);
+		border: none;
+		padding: .8rem 1rem;
+		border-radius: 6px;
+		cursor: pointer;
+		color: #fff;
+		font-size: 1.6rem;
+
+		margin-top: 2rem;
 	}
 }

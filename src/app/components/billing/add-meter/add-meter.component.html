@@ -1,0 +1,12 @@
+<div class="container">
+	<div class="box">
+		<h2 class="heading">Add Meter</h2>
+	
+		<form [formGroup]="addMeterForm" class="form">
+			<input class="field" type="text" placeholder="Meter Serial" formControlName="meterSerial">
+			<input class="field" type="text" placeholder="Alias" formControlName="alias">
+
+			<button class="btn" (click)="onSubmit()" [disabled]="addMeterForm.invalid">Submit</button>
+		</form>
+	</div>
+</div>

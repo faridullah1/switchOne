@@ -1,3 +1,5 @@
+export type BillingStages = 'SelectBill' | 'BillAmountEntry' | 'SelectPaymentMethod'| 'SelectMeter' | 'MeterAmountEntry';
+
 export interface Tab {
 	name: string;
 	title: string;

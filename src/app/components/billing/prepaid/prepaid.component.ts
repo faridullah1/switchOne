@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalStorageService } from 'src/app/services/localStorage.service';
+import { BillingStages } from './../../../models';
+import { BillingService } from './../../../services/billing.service';
 
 
 @Component({
@@ -8,26 +10,44 @@ import { LocalStorageService } from 'src/app/services/localStorage.service';
   styleUrls: ['./prepaid.component.scss']
 })
 export class PrepaidComponent implements OnInit {
-	bills: any[] = [];
-	stage: 'BillList' | 'AmountEntry' | 'paymentMethod' = 'BillList';
+	data: any[] = [];
+	stage: BillingStages = 'SelectBill';
 
-  	constructor(private localStorageService: LocalStorageService) { }
-
-	ngOnInit(): void {
-		this.getAllBills();
+  	constructor(private localStorageService: LocalStorageService, 
+				private billingService: BillingService) 
+	{
+		this.billingService.stage.subscribe((value: string) => {
+			console.log('New Stage =', value);
+			this.stage = value as BillingStages;
+		})
 	}
 
-	getAllBills(): void {
-		const bills = JSON.parse(this.localStorageService.getAllBills());
+	ngOnInit(): void {
+		if (this.stage === 'SelectBill') {
+			this.getData('bills');
+		}
+		else if (this.stage === 'SelectMeter') {
+			this.getData('meters');
+		}
+	}
+
+	getData(key: string): void {
+		const data = JSON.parse(this.localStorageService.getItems(key));
 		
-		if (bills) {
-			this.bills = bills;
+		if (data) {
+			this.data = data;
 		}
 
-		console.log('Bills =', this.bills);
+		console.log('Data =', this.data);
 	}
 
 	onSelectBill(bill: any): void {
-		this.stage = 'AmountEntry';
+		this.stage = 'BillAmountEntry';
+		this.billingService.nextStage('BillAmountEntry');
+	}
+
+	onSelectMeter(meter: any): void {
+		this.stage = 'MeterAmountEntry';
+		this.billingService.nextStage('MeterAmountEntry');
 	}
 }

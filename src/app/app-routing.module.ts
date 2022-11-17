@@ -13,6 +13,7 @@ import { HowToUseComponent } from './components/how-to-use/how-to-use.component'
 import { SecurityComponent } from './components/security/security.component';
 import { PrepaidComponent } from './components/billing/prepaid/prepaid.component';
 import { PaymentMethodComponent } from './components/billing/payment-method/payment-method.component';
+import { AddMeterComponent } from './components/billing/add-meter/add-meter.component';
 
 const routes: Routes = [
 	{ 
@@ -33,6 +34,7 @@ const routes: Routes = [
 		]
 	},
 	{ path: 'add_bill', component: AddBillComponent },
+	{ path: 'add_meter', component: AddMeterComponent },
 	{ path: 'payment_method', component: PaymentMethodComponent },
 	{ path: 'login', component: LoginComponent },
 	{ path: 'register', component: RegisterComponent },
