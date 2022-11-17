@@ -19,8 +19,12 @@ export class PrepaidComponent implements OnInit {
 	{
 		this.billingService.stage.subscribe((value: string) => {
 			console.log('New Stage =', value);
+
 			this.stage = value as BillingStages;
-		})
+			if (this.stage === 'SelectMeter') {
+				this.title = 'Buy Prepaid Tokens'; 
+			}
+		});
 	}
 
 	ngOnInit(): void {
