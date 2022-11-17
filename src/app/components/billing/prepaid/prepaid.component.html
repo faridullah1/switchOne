@@ -2,14 +2,24 @@
 	<h2>Pay Bill</h2>
 
 	<ng-container *ngIf="bills.length > 0; else noBills">
-		<div class="bill" *ngFor="let bill of bills">
-			<div class="reference-number">{{ bill.referenceNumber}}</div>
-			<div>{{ bill.alias}}</div>
-		</div>
+		<ng-container *ngIf="stage === 'BillList'">
+			<div class="bill" *ngFor="let bill of bills" (click)="onSelectBill(bill)">
+				<div class="reference-number">{{ bill.referenceNumber}}</div>
+				<div>{{ bill.alias}}</div>
+			</div>
+	
+			<div class="actions">
+				<button class="btn" routerLink="/add_bill">Add Bill</button>
+			</div>
+		</ng-container>
 
-		<button class="btn" routerLink="/add_bill">Add Bill</button>
+		<ng-container *ngIf="stage === 'AmountEntry'">
+			<input type="text" placeholder="Ener Amount">
 
-		<mat-icon>receipt_long</mat-icon>
+			<div class="actions">
+				<button class="btn" routerLink="/payment_method">Continue</button>
+			</div>
+		</ng-container>
 	</ng-container>
 
 	<ng-template #noBills>

@@ -4,21 +4,30 @@
 
 	.bill {
 		display: flex;
-		background-color: green;
+		background-color: #042f60;
 		margin-bottom: 1rem;
+		padding: .4rem 1rem;
+		cursor: pointer;
 
 		.reference-number {
-			margin-right: 4rem;
+			width: 30%;
 		}
 	}
 
-	.btn {
-		background-color: var(--color-secondary);
-		border: none;
-		padding: .8rem 1rem;
-		border-radius: 6px;
-		cursor: pointer;
-		color: #fff;
-		font-size: 1.6rem;
+	.actions {
+		display: flex;
+		justify-content: flex-end;
+
+		.btn {
+			background-color: var(--color-secondary);
+			border: none;
+			padding: .8rem 1rem;
+			border-radius: 6px;
+			cursor: pointer;
+			color: #fff;
+			font-size: 1.6rem;
+	
+			margin-top: 2rem;
+		}
 	}
 }

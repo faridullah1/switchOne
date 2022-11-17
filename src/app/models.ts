@@ -10,3 +10,9 @@ export interface Card {
 	description: string;
 	actionText: string;
 }
+
+export interface PaymentMethod {
+	name: string;
+	title: string;
+	image: string;
+}

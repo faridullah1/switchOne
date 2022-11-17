@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LocalStorageService } from 'src/app/services/localStorage.service';
 
 
@@ -7,16 +7,27 @@ import { LocalStorageService } from 'src/app/services/localStorage.service';
   templateUrl: './prepaid.component.html',
   styleUrls: ['./prepaid.component.scss']
 })
-export class PrepaidComponent {
+export class PrepaidComponent implements OnInit {
 	bills: any[] = [];
-	
-  	constructor(private localStorageService: LocalStorageService) {
-		const bills = JSON.parse(localStorageService.getAllBills());
+	stage: 'BillList' | 'AmountEntry' | 'paymentMethod' = 'BillList';
+
+  	constructor(private localStorageService: LocalStorageService) { }
+
+	ngOnInit(): void {
+		this.getAllBills();
+	}
+
+	getAllBills(): void {
+		const bills = JSON.parse(this.localStorageService.getAllBills());
 		
 		if (bills) {
 			this.bills = bills;
 		}
 
 		console.log('Bills =', this.bills);
+	}
+
+	onSelectBill(bill: any): void {
+		this.stage = 'AmountEntry';
 	}
 }

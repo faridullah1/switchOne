@@ -20,6 +20,7 @@ import { BillingComponent } from './components/billing/billing.component';
 import { AddBillComponent } from './components/billing/add-bill/add-bill.component';
 import { AccountsComponent } from './components/billing/accounts/accounts.component';
 import { PrepaidComponent } from './components/billing/prepaid/prepaid.component';
+import { PaymentMethodComponent } from './components/billing/payment-method/payment-method.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { PrepaidComponent } from './components/billing/prepaid/prepaid.component
     BillingComponent,
     AddBillComponent,
     AccountsComponent,
-    PrepaidComponent
+    PrepaidComponent,
+    PaymentMethodComponent
   ],
   imports: [
     BrowserModule,
