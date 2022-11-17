@@ -31,6 +31,10 @@
 			top: 20%
 		}
 
+		@media screen and (max-width: 400px) {
+			left: 5%
+		}
+
 		.tab {
 			font-weight: 600;
 			margin: 4px 2px;
@@ -47,6 +51,10 @@
 			@media screen and (max-width: 800px) {
 				padding: .5rem 1rem;
 				font-size: 1.4rem;
+			}
+
+			@media screen and (max-width: 470px) {
+				font-size: 1rem;
 			}
 		}
   	}
