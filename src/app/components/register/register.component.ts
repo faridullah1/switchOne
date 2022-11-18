@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatStepper } from '@angular/material/stepper';
+import { ConfirmedValidator } from 'src/app/common/validators';
 import { AuthService } from 'src/app/services/auth.service';
 
 
@@ -20,16 +21,29 @@ export class RegisterComponent {
 		this.basicInfoForm = fb.group({
 			firstName: ['', [Validators.required]],
 			lastName: ['', [Validators.required]],
-			cellNumber: ['', [Validators.required]],
-			idNumber: ['', [Validators.required]],
+			cellNumber: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
+			idNumber: ['', [Validators.required, Validators.minLength(13), Validators.maxLength(13)]],
 			email: ['', [Validators.required, Validators.email]],
 		});
 
 		this.credentialsForm = fb.group({
 			userName: ['', [Validators.required]],
 			password: ['', [Validators.required]],
-			confirmPassword: ['', [Validators.required]]
-		});
+			confirmPassword: ['', [Validators.required, ConfirmedValidator]]
+		}, {validators: [ConfirmedValidator('password', 'confirmPassword')]})
+	}
+
+	alphabetOnly(ev: any): boolean {
+		const allowedKeys = ['Backspace', 'ArrowLeft', 'ArrowRight', 'Tab', ' '];
+		if (allowedKeys.includes(ev.key)) return true;
+
+        const letters = /^[a-zA-Z]+$/
+        if (ev.key && ev.key.match(letters))
+        {
+            return (ev.key.match(letters).length > 0);
+        }
+
+        return false;
 	}
 
 	numericOnly(ev: any): boolean
