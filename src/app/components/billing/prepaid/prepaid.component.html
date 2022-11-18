@@ -34,7 +34,7 @@
 		</ng-container>
 
 		<ng-template #noBills>
-			<div class="no-bill">No bills added</div>
+			<div class="no-data">No bills added</div>
 			<div class="actions">
 				<button class="btn" (click)="onAddBill()">Add Bill</button>
 			</div>
@@ -62,8 +62,10 @@
 		</ng-container>
 
 		<ng-template #noMeter>
-			<div class="no-bill">No meter added</div>
-			<button class="btn" (click)="onAddMeter()">Add Meter</button>
+			<div class="no-data">No meter added</div>
+			<div class="actions">
+				<button class="btn" (click)="onAddMeter()">Add Meter</button>
+			</div>
 		</ng-template>
 	</ng-container>
 

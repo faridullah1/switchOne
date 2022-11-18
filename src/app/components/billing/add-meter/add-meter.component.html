@@ -6,7 +6,10 @@
 			<input class="field" type="text" placeholder="Meter Serial" formControlName="meterSerial">
 			<input class="field" type="text" placeholder="Alias" formControlName="alias">
 
-			<button class="btn" (click)="onSubmit()" [disabled]="addMeterForm.invalid">Submit</button>
+			<div class="actions">
+				<button mat-raised-button color="warn" class="mr-3" matDialogClose>Cancel</button>
+				<button class="btn" (click)="onSubmit()" [disabled]="addMeterForm.invalid">Submit</button>
+			</div>
 		</form>
 	</div>
 </div>

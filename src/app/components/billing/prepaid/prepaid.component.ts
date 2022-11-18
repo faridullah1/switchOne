@@ -64,7 +64,7 @@ export class PrepaidComponent implements OnInit {
 
 	onAddMeter(): void {
 		this.dialog.open(AddMeterComponent, {
-			width: '25%'
+			width: '20%'
 		});
 	}
 
