@@ -2,6 +2,89 @@
 	display: flex;
 	flex-direction: column;
 
+	.tabs {
+		display: flex;
+		margin-bottom: 2rem;
+
+		.pointer {
+			width: 16rem;
+			height: 4rem;
+			position: relative;
+	
+			display: flex;
+			align-items: center;
+			justify-content: center;
+	
+			cursor: pointer;
+		}
+	
+		.selected {
+			.pointer {
+				background-color: #083666 !important;
+	
+				&::before {
+					border-left: 20px solid #083666 !important;
+					z-index: 1;
+				}
+			}
+		}
+	
+		.non-selected {
+			.pointer {
+				background-color: #fff !important;
+				color: #000;
+	
+				&::before {
+					border-left: 20px solid #fff !important;
+					z-index: 1;
+				}
+			}
+		}
+	
+		.gray-left {
+			.pointer {
+				&::after {
+					left: 1px !important;
+					border-left: 20px solid gray !important;
+				}
+			}
+		}
+	
+		.disabled {
+			border: 1px solid gray;
+			color: gray;
+			cursor: default;
+		}
+		
+		.pointing-left {
+			.pointer:after {
+				content: "";
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				width: 0;
+				height: 0;
+				border-left: 20px solid transparent;
+				border-top: 20px solid transparent;
+				border-bottom: 20px solid transparent;
+			}
+		}
+	
+		.pointing-right {
+			.pointer:before {
+				content: "";
+				position: absolute;
+				right: -20px;
+				bottom: 0;
+				width: 0;
+				height: 0;
+				border-left: 20px solid transparent;
+				border-top: 20px solid transparent;
+				border-bottom: 20px solid transparent;
+			}
+		}
+	}
+
 	.bill {
 		display: flex;
 		background-color: #042f60;

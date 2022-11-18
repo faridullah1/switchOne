@@ -16,10 +16,10 @@ export class LandingPageComponent {
 	constructor(private router: Router) 
 	{
 		this.tabs = [
-			{ name: 'features', title: 'Features', selected: false, route: 'features' },
-			{ name: 'how_to_use', title: 'How to use', selected: false, route: 'how_to_use' },
-			{ name: 'security', title: 'Security', selected: false, route: 'security' },
-			{ name: 'billing', title: 'Pay and buy', selected: false, route: 'billing' },
+			{ name: 'features', title: 'Features', route: 'features' },
+			{ name: 'how_to_use', title: 'How to use', route: 'how_to_use' },
+			{ name: 'security', title: 'Security', route: 'security' },
+			{ name: 'billing', title: 'Pay and buy', route: 'billing' },
 		];
 
 		router.events.pipe(filter(event => event instanceof NavigationEnd))

@@ -3,10 +3,14 @@
 		<img src="/assets/images/logo.jpg" alt="logo" class="logo">
 
 		<ul>
-			<li *ngFor="let tab of tabs" 
+			<li 
+				class="nav-item"
+				*ngFor="let tab of tabs" 
 				routerLinkActive="active"
 				[routerLink]="'/billing/' + tab.route">
-				{{ tab.title }}
+				
+				<mat-icon>{{ tab.icon }}</mat-icon>
+				<span>{{ tab.title }}</span>
 			</li>
 		</ul>
 	</nav>

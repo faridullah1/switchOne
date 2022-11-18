@@ -34,29 +34,6 @@
 		@media screen and (max-width: 400px) {
 			left: 5%
 		}
-
-		.tab {
-			font-weight: 600;
-			margin: 4px 2px;
-			padding: 1rem 3.2rem;
-			border-radius: 5px;
-			border: none;
-			color: gray;
-			text-align: center;
-			display: inline-block;
-			cursor: pointer;
-			background: rgb(241, 234, 234);
-			text-transform: uppercase;
-
-			@media screen and (max-width: 800px) {
-				padding: .5rem 1rem;
-				font-size: 1.4rem;
-			}
-
-			@media screen and (max-width: 470px) {
-				font-size: 1rem;
-			}
-		}
   	}
 
 	.tabs {
@@ -64,24 +41,28 @@
 		top: 40%;
 		left: 25%;
 		width: fit-content;
+	}
 
-		.tab {
-			font-weight: 600;
-			margin: 4px 2px;
-			padding: 1rem 3.2rem;
-			border-radius: 5px;
-			border: none;
-			color: gray;
-			text-align: center;
-			display: inline-block;
-			cursor: pointer;
-			background: rgb(241, 234, 234);
-			text-transform: uppercase;
+	.tab {
+		font-weight: 600;
+		margin: 4px 2px;
+		padding: 0.5rem 2.5rem;
+		border-radius: 5px;
+		border: none;
+		color: gray;
+		text-align: center;
+		display: inline-block;
+		cursor: pointer;
+		background: rgb(241, 234, 234);
+		text-transform: uppercase;
 
-			@media screen and (max-width: 800px) {
-				padding: .5rem 1rem;
-				font-size: 1.4rem;
-			}
+		@media screen and (max-width: 800px) {
+			padding: .5rem 1rem;
+			font-size: 1.4rem;
+		}
+
+		@media screen and (max-width: 470px) {
+			font-size: 1rem;
 		}
 	}
 
@@ -100,7 +81,7 @@
 	.billing-content {
 		width: 60%;
 		position: relative;
-		top: 40%;
+		top: 39.5%;
 		left: 25%;
 	}
 }

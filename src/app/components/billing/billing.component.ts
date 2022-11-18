@@ -13,9 +13,9 @@ export class BillingComponent {
 
 	constructor() {
 		this.tabs = [
-			{ name: 'bills_accounts', title: 'Bills & Accounts', selected: false, route: 'accounts' },
-			{ name: 'prepaid', title: 'Prepaid', selected: false, route: 'prepaid' },
-			{ name: 'history', title: 'History', selected: true, route: 'history' },
+			{ name: 'bills_accounts', title: 'Bills & Accounts', icon: 'receipt_long', route: 'accounts' },
+			{ name: 'prepaid', title: 'Prepaid', icon: 'emoji_objects', route: 'prepaid' },
+			{ name: 'history', title: 'History', icon: 'history', route: 'history' },
 		];
 	}
 }

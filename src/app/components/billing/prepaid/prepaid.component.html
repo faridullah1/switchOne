@@ -1,6 +1,26 @@
 <div class="container">
 	<h2 class="mb-3">{{ title }}</h2>
 
+	<div class="tabs" *ngIf="stage !== 'CardDetails'">
+		<div class="pointing-right" [ngClass]="['SelectBill', 'SelectMeter'].includes(stage) ? 'selected' : 'non-selected'">
+			<div class="pointer">
+				{{ getTabTitle() }}
+			</div>
+		</div>
+
+		<div class="pointing-right" [ngClass]="['BillAmountEntry', 'MeterAmountEntry'].includes(stage) ? 'selected' : 'non-selected'" [ngClass]="stage === 'BillAmountEntry' ? 'selected' : 'non-selected'">
+			<div class="pointer">Amount</div>
+		</div>
+
+		<div class="pointing-left gray-left pointing-right" [ngClass]="stage === 'ConfirmPay' ? 'selected' : 'non-selected'">
+			<div class="pointer">Confirm</div>
+		</div>
+
+		<div class="disabled pointing-left gray-left" [class.selected]="stage === 'Result'">
+			<div class="pointer">Result</div>
+		</div>
+	</div>
+
 	<ng-container *ngIf="stage === 'SelectBill'">
 		<ng-container *ngIf="data.length > 0; else noBills">
 			<div class="bill" *ngFor="let bill of data" (click)="onSelectBill(bill)">

@@ -46,6 +46,12 @@ export class PrepaidComponent implements OnInit {
 		console.log('Data =', this.data);
 	}
 
+	getTabTitle(): string {
+		if (this.stage === 'SelectMeter') return 'Select Meter';
+
+		return 'Select Bill';
+	}
+
 	onSelectBill(bill: any): void {
 		this.stage = 'BillAmountEntry';
 		this.billingService.nextStage('BillAmountEntry');

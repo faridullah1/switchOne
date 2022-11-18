@@ -1,11 +1,12 @@
 export type BillingStages = 'SelectBill' | 'BillAmountEntry' | 'SelectPaymentMethod'| 'SelectMeter' | 
-							'MeterAmountEntry' | 'ConfirmPay' | 'CardDetails';
+							'MeterAmountEntry' | 'ConfirmPay' | 'CardDetails' | 'Result';
 
 export interface Tab {
 	name: string;
 	title: string;
-	selected: boolean,
 	route?: string;
+	icon?: string;
+	selected?: boolean;
 }
 
 export interface Card {
