@@ -27,6 +27,6 @@ export interface Bill {
 	branchCode: string;
 	accountNumber: string;
 	accountType: string;
-	myReference: number;
-	fromReference: number;
+	yourReference: number;
+	theirReference: number;
 }

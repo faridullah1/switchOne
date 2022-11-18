@@ -9,7 +9,7 @@
 				</div>
 			</div>
 	
-			<div class="pointing-left gray-left pointing-right" [ngClass]="stage === 'ConfirmPay' ? 'selected' : 'non-selected'">
+			<div class="pointing-left gray-left pointing-right" [ngClass]="stage === 'BillAmountEntry' ? 'selected' : 'non-selected'">
 				<div class="pointer">Confirm</div>
 			</div>
 		</div>
@@ -19,7 +19,7 @@
 
 	<ng-container *ngIf="stage === 'SelectBill'">
 		<ng-container *ngIf="bills.length > 0; else noBills">
-			<table>
+			<table class="table">
 				<thead>
 					<tr>
 						<th>Biller</th>
@@ -31,18 +31,22 @@
 				</thead>
 
 				<tbody>
-					<tr *ngFor="let bill of bills;" (click)="onSelectBill(bill)">
+					<tr *ngFor="let bill of bills;">
 						<td>{{ bill.accountHolder }}</td>
 						<td>{{ bill.bank }}</td>
 						<td>{{ bill.accountNumber }}</td>
-						<td>{{ bill.myReference }}</td>
-						<td>{{ bill.fromReference }}</td>
+						<td>{{ bill.yourReference }}</td>
+						<td>{{ bill.theirReference }}</td>
+
+						<td (click)="onSelectBill(bill)">
+							<mat-radio-button color="primary"></mat-radio-button>
+						</td>
 					</tr>
 				</tbody>
 			</table>
 
 			<div class="actions">
-				<button class="btn" (click)="onContinue()">Continue</button>
+				<button class="btn" [disabled]="!selectedBill" (click)="onContinue()">Continue</button>
 			</div>
 		</ng-container>
 
@@ -52,18 +56,20 @@
 	</ng-container>
 
 	<ng-container *ngIf="stage === 'BillAmountEntry'">
-		<div class="header">
-			<div class="col">Biller</div>
-			<div class="col">Amount</div>
-		</div>
-		
-		<div class="values">
-			<div class="biller">{{ this.selectedBill.accountHolder }}</div>
-			<input class="field" type="text" placeholder="Ener Amount">
+		<div class="bill-payment">
+			<div class="labels">
+				<div class="col">Biller</div>
+				<div class="col">Amount</div>
+			</div>
+			
+			<div class="values">
+				<div class="col">{{ this.selectedBill?.accountHolder }}</div>
+				<input class="col field" type="text" placeholder="Ener Amount" [formControl]="amount">
+			</div>	
 		</div>
 
 		<div class="actions">
-			<button class="btn" (click)="onAddToCart()">Add to cart</button>
+			<button class="btn" (click)="onAddToCart()" [disabled]="!amount.value">Add to cart</button>
 		</div>
 	</ng-container>
 </div>
