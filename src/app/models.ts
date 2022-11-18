@@ -20,3 +20,13 @@ export interface PaymentMethod {
 	title: string;
 	image: string;
 }
+
+export interface Bill {
+	accountHolder: string;
+	bank: string;
+	branchCode: string;
+	accountNumber: string;
+	accountType: string;
+	myReference: number;
+	fromReference: number;
+}

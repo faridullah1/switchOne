@@ -1,0 +1,51 @@
+.container {
+	display: flex;
+	flex-direction: column;
+
+	.header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.bill {
+		display: flex;
+		background-color: #042f60;
+		margin-bottom: 1rem;
+		padding: .4rem 1rem;
+		cursor: pointer;
+
+		.reference-number {
+			width: 30%;
+		}
+	}
+
+	.no-data {
+		text-align: center;
+		font-size: 1.1rem;
+		margin: 4rem 0;
+	}
+
+	.field {
+		padding: 1rem 2rem;
+		background: none;
+		border: 1px solid #e2cccc;
+		color: #fff;
+		outline: none;
+	}
+
+	.actions {
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	.btn {
+		background-color: var(--color-gray);
+		border: none;
+		padding: 0.8rem 0;
+		cursor: pointer;
+		color: #5d5d5d;
+		width: 13rem;
+		font-size: 1.6rem;
+	}
+}

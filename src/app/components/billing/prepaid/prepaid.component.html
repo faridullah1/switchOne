@@ -1,10 +1,10 @@
 <div class="container">
-	<h2 class="mb-3">{{ title }}</h2>
+	<h2 class="mb-3">Buy Prepaid Tokens</h2>
 
-	<div class="tabs" *ngIf="stage !== 'CardDetails'">
+	<div class="billing-tabs" *ngIf="stage !== 'CardDetails'">
 		<div class="pointing-right" [ngClass]="['SelectBill', 'SelectMeter'].includes(stage) ? 'selected' : 'non-selected'">
 			<div class="pointer">
-				{{ getTabTitle() }}
+				Select Meter
 			</div>
 		</div>
 
@@ -21,37 +21,9 @@
 		</div>
 	</div>
 
-	<ng-container *ngIf="stage === 'SelectBill'">
-		<ng-container *ngIf="data.length > 0; else noBills">
-			<div class="bill" *ngFor="let bill of data" (click)="onSelectBill(bill)">
-				<div class="reference-number">{{ bill.referenceNumber}}</div>
-				<div>{{ bill.alias}}</div>
-			</div>
-	
-			<div class="actions">
-				<button class="btn" (click)="onAddBill()">Add Bill</button>
-			</div>
-		</ng-container>
-
-		<ng-template #noBills>
-			<div class="no-data">No bills added</div>
-			<div class="actions">
-				<button class="btn" (click)="onAddBill()">Add Bill</button>
-			</div>
-		</ng-template>
-	</ng-container>
-
-	<ng-container *ngIf="stage === 'BillAmountEntry'">
-		<input class="field" type="text" placeholder="Ener Amount">
-
-		<div class="actions">
-			<button class="btn" routerLink="/payment_method">Continue</button>
-		</div>
-	</ng-container>
-
 	<ng-container *ngIf="stage === 'SelectMeter'">
-		<ng-container *ngIf="data.length > 0; else noMeter">
-			<div class="bill" *ngFor="let meter of data" (click)="onSelectMeter(meter)">
+		<ng-container *ngIf="meters.length > 0; else noMeter">
+			<div class="bill" *ngFor="let meter of meters" (click)="onSelectMeter(meter)">
 				<div class="reference-number">{{ meter.meterSerial}}</div>
 				<div>{{ meter.alias}}</div>
 			</div>

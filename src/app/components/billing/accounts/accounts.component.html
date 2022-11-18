@@ -1,3 +1,69 @@
 <div class="container">
-	Account page under development
+	<h2 class="mb-3">Pay Bills</h2>
+
+	<div class="header">
+		<div class="billing-tabs">
+			<div class="pointing-right" [ngClass]="stage === 'SelectBill' ? 'selected' : 'non-selected'">
+				<div class="pointer">
+					Select Bill
+				</div>
+			</div>
+	
+			<div class="pointing-left gray-left pointing-right" [ngClass]="stage === 'ConfirmPay' ? 'selected' : 'non-selected'">
+				<div class="pointer">Confirm</div>
+			</div>
+		</div>
+
+		<button class="btn" (click)="onAddBill()">Add Bill</button>
+	</div>
+
+	<ng-container *ngIf="stage === 'SelectBill'">
+		<ng-container *ngIf="bills.length > 0; else noBills">
+			<table>
+				<thead>
+					<tr>
+						<th>Biller</th>
+						<th>Bank</th>
+						<th>Account</th>
+						<th>My reference</th>
+						<th>Their Reference</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr *ngFor="let bill of bills;" (click)="onSelectBill(bill)">
+						<td>{{ bill.accountHolder }}</td>
+						<td>{{ bill.bank }}</td>
+						<td>{{ bill.accountNumber }}</td>
+						<td>{{ bill.myReference }}</td>
+						<td>{{ bill.fromReference }}</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<div class="actions">
+				<button class="btn" (click)="onContinue()">Continue</button>
+			</div>
+		</ng-container>
+
+		<ng-template #noBills>
+			<div class="no-data">No bills added</div>
+		</ng-template>
+	</ng-container>
+
+	<ng-container *ngIf="stage === 'BillAmountEntry'">
+		<div class="header">
+			<div class="col">Biller</div>
+			<div class="col">Amount</div>
+		</div>
+		
+		<div class="values">
+			<div class="biller">{{ this.selectedBill.accountHolder }}</div>
+			<input class="field" type="text" placeholder="Ener Amount">
+		</div>
+
+		<div class="actions">
+			<button class="btn" (click)="onAddToCart()">Add to cart</button>
+		</div>
+	</ng-container>
 </div>
