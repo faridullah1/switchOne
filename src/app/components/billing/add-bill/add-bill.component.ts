@@ -1,7 +1,7 @@
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component } from '@angular/core';
 import { LocalStorageService } from 'src/app/services/localStorage.service';
-import { Router } from '@angular/router';
+import { MatDialogRef } from '@angular/material/dialog';
 
 
 @Component({
@@ -13,7 +13,7 @@ export class AddBillComponent {
 	addBillForm: FormGroup;
 
 	constructor(private localStorageService: LocalStorageService, 
-				private router: Router)
+				private dialogRef: MatDialogRef<AddBillComponent>)
 	{
 		this.addBillForm = new FormGroup({
 			referenceNumber: new FormControl('', Validators.required),
@@ -22,10 +22,8 @@ export class AddBillComponent {
 	}
 
 	onSubmit(): void {
-		console.log(this.addBillForm.value);
-
 		// Currently I am storing data in local storage, please replace it with server API
 		this.localStorageService.setItem('bills', this.addBillForm.value);
-		this.router.navigateByUrl('/billing/prepaid');
+		this.dialogRef.close();
 	}
 }

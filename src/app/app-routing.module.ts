@@ -6,14 +6,12 @@ import { RegisterComponent } from './components/register/register.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { BillingComponent } from './components/billing/billing.component';
-import { AddBillComponent } from './components/billing/add-bill/add-bill.component';
 import { AccountsComponent } from './components/billing/accounts/accounts.component';
 import { FeaturesComponent } from './components/features/features.component';
 import { HowToUseComponent } from './components/how-to-use/how-to-use.component';
 import { SecurityComponent } from './components/security/security.component';
 import { PrepaidComponent } from './components/billing/prepaid/prepaid.component';
 import { PaymentMethodComponent } from './components/billing/payment-method/payment-method.component';
-import { AddMeterComponent } from './components/billing/add-meter/add-meter.component';
 
 const routes: Routes = [
 	{ 
@@ -33,8 +31,6 @@ const routes: Routes = [
 			},
 		]
 	},
-	{ path: 'add_bill', component: AddBillComponent },
-	{ path: 'add_meter', component: AddMeterComponent },
 	{ path: 'payment_method', component: PaymentMethodComponent },
 	{ path: 'login', component: LoginComponent },
 	{ path: 'register', component: RegisterComponent },

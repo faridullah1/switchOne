@@ -29,13 +29,15 @@
 			</div>
 	
 			<div class="actions">
-				<button class="btn" routerLink="/add_bill">Add Bill</button>
+				<button class="btn" (click)="onAddBill()">Add Bill</button>
 			</div>
 		</ng-container>
 
 		<ng-template #noBills>
 			<div class="no-bill">No bills added</div>
-			<button class="btn" routerLink="/add_bill">Add Bill</button>
+			<div class="actions">
+				<button class="btn" (click)="onAddBill()">Add Bill</button>
+			</div>
 		</ng-template>
 	</ng-container>
 
@@ -55,13 +57,13 @@
 			</div>
 	
 			<div class="actions">
-				<button class="btn" routerLink="/add_meter">Add Meter</button>
+				<button class="btn" (click)="onAddMeter()">Add Meter</button>
 			</div>
 		</ng-container>
 
 		<ng-template #noMeter>
 			<div class="no-bill">No meter added</div>
-			<button class="btn" routerLink="/add_meter">Add Meter</button>
+			<button class="btn" (click)="onAddMeter()">Add Meter</button>
 		</ng-template>
 	</ng-container>
 

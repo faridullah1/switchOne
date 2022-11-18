@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { LocalStorageService } from 'src/app/services/localStorage.service';
+import { AddBillComponent } from '../add-bill/add-bill.component';
+import { AddMeterComponent } from '../add-meter/add-meter.component';
 import { BillingStages } from './../../../models';
 import { BillingService } from './../../../services/billing.service';
 
@@ -15,7 +18,8 @@ export class PrepaidComponent implements OnInit {
 	stage: BillingStages = 'SelectBill';
 
   	constructor(private localStorageService: LocalStorageService, 
-				private billingService: BillingService) 
+				private billingService: BillingService,
+				private dialog: MatDialog) 
 	{
 		this.billingService.stage.subscribe((value: string) => {
 			console.log('New Stage =', value);
@@ -50,6 +54,18 @@ export class PrepaidComponent implements OnInit {
 		if (this.stage === 'SelectMeter') return 'Select Meter';
 
 		return 'Select Bill';
+	}
+
+	onAddBill(): void {
+		this.dialog.open(AddBillComponent, {
+			width: '20%'
+		});
+	}
+
+	onAddMeter(): void {
+		this.dialog.open(AddMeterComponent, {
+			width: '25%'
+		});
 	}
 
 	onSelectBill(bill: any): void {
