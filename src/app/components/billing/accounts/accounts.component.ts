@@ -14,7 +14,7 @@ import { LocalStorageService } from 'src/app/services/localStorage.service';
 })
 export class AccountsComponent implements OnInit {
 	bills: Bill[] = [];
-	stage: BillingStages = 'SelectBill';
+	stage: BillingStages;
 	selectedBill: Bill | null = null;
 
 	amount = new FormControl(null);
@@ -22,7 +22,9 @@ export class AccountsComponent implements OnInit {
   	constructor(private dialog: MatDialog,
 				private localStorageService: LocalStorageService,
 				private billingService: BillingService) 
-	{ }
+	{
+		this.stage = 'SelectBill';
+	}
 
 	ngOnInit(): void {
 		this.getBills();

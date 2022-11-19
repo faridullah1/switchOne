@@ -1,4 +1,4 @@
-export type BillingStages = 'SelectBill' | 'AmountEntry' | 'SelectMeter' | 'ConfirmPay' | 'Summary' | 'Payment';
+export type BillingStages = 'SelectBill' | 'AmountEntry' | 'SelectMeter' | 'Summary' | 'Payment';
 
 export interface Tab {
 	name: string;

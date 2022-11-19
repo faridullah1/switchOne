@@ -1,73 +1,69 @@
 <div class="container">
 	<h2 class="mb-3">Buy Prepaid Tokens</h2>
 
-	<div class="billing-tabs" *ngIf="stage !== 'Payment'">
-		<div class="pointing-right" [ngClass]="stage === 'SelectMeter' ? 'selected' : 'non-selected'">
-			<div class="pointer">
-				Select Meter
+	<div class="header">
+		<div class="billing-tabs" *ngIf="stage !== 'Payment'">
+			<div class="pointing-right" [ngClass]="stage === 'SelectMeter' ? 'selected' : 'non-selected'">
+				<div class="pointer">
+					Select Meter
+				</div>
+			</div>
+	
+			<div class="pointing-right" [ngClass]="stage === 'AmountEntry' ? 'selected' : 'non-selected'">
+				<div class="pointer">Amount</div>
 			</div>
 		</div>
 
-		<div class="pointing-right" [ngClass]="stage === 'AmountEntry' ? 'selected' : 'non-selected'">
-			<div class="pointer">Amount</div>
-		</div>
-
-		<div class="pointing-left gray-left pointing-right" [ngClass]="stage === 'ConfirmPay' ? 'selected' : 'non-selected'">
-			<div class="pointer">Confirm</div>
-		</div>
+		<button class="btn" (click)="onAddMeter()">Add Meter</button>
 	</div>
 
 	<ng-container *ngIf="stage === 'SelectMeter'">
 		<ng-container *ngIf="meters.length > 0; else noMeter">
-			<div class="bill" *ngFor="let meter of meters" (click)="onSelectMeter(meter)">
-				<div class="reference-number">{{ meter.meterSerial}}</div>
-				<div>{{ meter.alias}}</div>
-			</div>
-	
+			<table class="billing-tabular-data">
+				<thead>
+					<tr>
+						<th>Serial Number</th>
+						<th>Alias</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr *ngFor="let meter of meters;">
+						<td>{{ meter.meterSerial }}</td>
+						<td>{{ meter.alias }}</td>
+				
+						<td class="text-right" (click)="onSelectMeter(meter)">
+							<mat-radio-button color="primary"></mat-radio-button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
 			<div class="actions">
-				<button class="btn" (click)="onAddMeter()">Add Meter</button>
+				<button class="btn" [disabled]="!selectedMeter" (click)="onContinue()">Continue</button>
 			</div>
 		</ng-container>
 
 		<ng-template #noMeter>
 			<div class="no-data">No meter added</div>
-			<div class="actions">
-				<button class="btn" (click)="onAddMeter()">Add Meter</button>
-			</div>
 		</ng-template>
 	</ng-container>
 
 	<ng-container *ngIf="stage === 'AmountEntry'">
-		<div class="meter-payment">
-			<div class="flex">
-				<div class="meter-info">
-					<div class="heading">Current Transaction</div>
-					<input class="field" type="text" placeholder="Enter Amount (R)">
-				</div>
-
-				<div class="amount-pick">
-					R100
-				</div>
+		<div class="payment">
+			<div class="labels">
+				<div class="col">Alias</div>
+				<div class="col">Amount</div>
 			</div>
-	
-			<div class="flex">
-				<button class="btn mr-3">Back</button>
-				<button class="btn" (click)="onConfirm()">Confirm</button>
-			</div>
+			
+			<div class="values">
+				<div class="col">{{ this.selectedMeter?.alias }}</div>
+				<input class="col field" type="text" placeholder="Ener Amount" [formControl]="amount">
+			</div>	
 		</div>
-	</ng-container>
 
-	<ng-container *ngIf="stage === 'ConfirmPay'">
-		<div class="meter-payment">
-			<div class="meter-info">
-				<div class="heading">Current Transaction</div>
-				<input class="field" type="text" placeholder="Enter Amount (R)">
-			</div>
-	
-			<div class="flex">
-				<button class="btn mr-3">Back</button>
-				<button class="btn" (click)="onPayment()">Pay</button>
-			</div>
+		<div class="actions">
+			<button class="btn" (click)="onAddToCart()" [disabled]="!amount.value">Add to cart</button>
 		</div>
 	</ng-container>
 </div>

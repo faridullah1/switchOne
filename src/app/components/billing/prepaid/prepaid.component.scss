@@ -2,43 +2,37 @@
 	display: flex;
 	flex-direction: column;
 
-	.bill {
+	.header {
 		display: flex;
-		background-color: #042f60;
-		margin-bottom: 1rem;
-		padding: .4rem 1rem;
-		cursor: pointer;
+		justify-content: space-between;
+		align-items: center;
+	}
 
-		.reference-number {
+	.payment {
+		margin: 2rem 0;
+
+		.labels {
+			display: flex;
+			margin-bottom: .5rem;
+		}
+
+		.col {
 			width: 30%;
 		}
-	}
 
-	.no-data {
-		text-align: center;
-		font-size: 1.1rem;
-	}
-
-	.meter-payment {
-		display: flex;
-		flex-direction: column;
-
-		.meter-info {
-			margin-right: 4rem;
+		.values {
+			display: flex;
+			align-items: center;
+			color: #c5cfdc;
 		}
-	}
 
-	.card-details {
-		display: flex;
-		flex-direction: column;
-	}
-	
-	.field {
-		padding: 1rem 2rem;
-		background: none;
-		border: 1px solid #e2cccc;
-		color: #fff;
-		outline: none;
+		.field {
+			padding: 1rem 2rem;
+			background: none;
+			border: 1px solid #c5cfdc;
+			color: #c5cfdc;
+			outline: none;
+		}	
 	}
 
 	.actions {
@@ -47,14 +41,17 @@
 	}
 
 	.btn {
-		background-color: var(--color-secondary);
+		background-color: var(--color-gray);
 		border: none;
-		padding: .8rem 1rem;
-		border-radius: 6px;
+		padding: 0.8rem 0;
 		cursor: pointer;
-		color: #fff;
+		color: #5d5d5d;
+		width: 13rem;
 		font-size: 1.6rem;
 
-		margin-top: 2rem;
+		&:disabled {
+			opacity: .4;
+			cursor: default;
+		}
 	}
 }

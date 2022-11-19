@@ -19,7 +19,7 @@
 
 	<ng-container *ngIf="stage === 'SelectBill'">
 		<ng-container *ngIf="bills.length > 0; else noBills">
-			<table class="table">
+			<table class="billing-tabular-data">
 				<thead>
 					<tr>
 						<th>Biller</th>
@@ -56,7 +56,7 @@
 	</ng-container>
 
 	<ng-container *ngIf="stage === 'AmountEntry'">
-		<div class="bill-payment">
+		<div class="payment">
 			<div class="labels">
 				<div class="col">Biller</div>
 				<div class="col">Amount</div>

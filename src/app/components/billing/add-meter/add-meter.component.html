@@ -1,13 +1,15 @@
 <div class="container">
 	<div class="box">
-		<h2 class="heading">Add Meter</h2>
+		<h2 class="heading">
+			<div class="title">Add Meter</div>
+			<mat-icon class="pointer" matDialogClose>close</mat-icon>
+		</h2>
 	
 		<form [formGroup]="addMeterForm" class="form">
 			<input class="field" type="text" placeholder="Meter Serial" formControlName="meterSerial">
 			<input class="field" type="text" placeholder="Alias" formControlName="alias">
 
 			<div class="actions">
-				<button mat-raised-button color="warn" class="mr-3" matDialogClose>Cancel</button>
 				<button class="btn" (click)="onSubmit()" [disabled]="addMeterForm.invalid">Submit</button>
 			</div>
 		</form>

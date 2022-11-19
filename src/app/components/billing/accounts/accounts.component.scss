@@ -8,29 +8,7 @@
 		align-items: center;
 	}
 
-	.table {
-		margin: 2rem 0;
-		border: 1px solid #f9ffff;
-		padding: 2rem 1rem;
-
-		th {
-			text-align: left;
-			padding-bottom: .5rem;
-		}
-
-		td {
-			color: #c5cfdc;
-			padding-bottom: .5rem;
-		}
-	}
-
-	.no-data {
-		text-align: center;
-		font-size: 1.1rem;
-		margin: 4rem 0;
-	}
-
-	.bill-payment {
+	.payment {
 		margin: 2rem 0;
 
 		.labels {

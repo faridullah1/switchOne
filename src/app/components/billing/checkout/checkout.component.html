@@ -15,7 +15,7 @@
 
 	<ng-container *ngIf="stage === 'Summary'">
 		<ng-container *ngIf="cart.length > 0; else noCartItem">
-			<table class="table">
+			<table class="billing-tabular-data">
 				<thead>
 					<tr>
 						<th>Product Type</th>
@@ -41,7 +41,7 @@
 			<div class="total-row">
 				<div class="total">
 					<label class="label">Total</label>
-					<div class="value">{{ getTotal() }}</div>
+					<div class="value">{{ getTotal() | number }}</div>
 				</div>
 			</div>
 
@@ -88,7 +88,7 @@
 
 			<div class="row">
 				<div class="label">Total</div>
-				<div class="value">{{ getTotal() }}</div>
+				<div class="value">{{ getTotal() | number }}</div>
 			</div>
 
 			<div class="actions">

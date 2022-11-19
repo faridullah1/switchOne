@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { LocalStorageService } from 'src/app/services/localStorage.service';
 import { AddMeterComponent } from '../add-meter/add-meter.component';
@@ -13,16 +14,20 @@ import { BillingService } from './../../../services/billing.service';
 })
 export class PrepaidComponent implements OnInit {
 	meters: any[] = [];
-	stage: BillingStages = 'SelectMeter';
+	selectedMeter: any | null = null;
+	stage: BillingStages;
+
+	amount = new FormControl(null);
 
   	constructor(private localStorageService: LocalStorageService, 
 				private billingService: BillingService,
 				private dialog: MatDialog) 
 	{
 		this.billingService.stage.subscribe((value: string) => {
-			console.log('New Stage =', value);
 			this.stage = value as BillingStages;
 		});
+
+		this.stage = 'SelectMeter';
 	}
 
 	ngOnInit(): void {
@@ -30,31 +35,43 @@ export class PrepaidComponent implements OnInit {
 	}
 
 	getMeters(): void {
-		const data = JSON.parse(this.localStorageService.getItems('meters'));
-		
-		if (data) {
-			this.meters = data;
-		}
+		this.meters = JSON.parse(this.localStorageService.getItems('meters')) || [];
 	}
 
 	onAddMeter(): void {
-		this.dialog.open(AddMeterComponent, {
+		const dialog = this.dialog.open(AddMeterComponent, {
 			width: '20%'
+		});
+
+		dialog.afterClosed().subscribe(resp => {
+			if (resp) {
+				this.getMeters();
+			}
 		});
 	}
 
 	onSelectMeter(meter: any): void {
-		this.stage = 'AmountEntry';
+		this.selectedMeter = meter;
+	}
+
+	onContinue(): void {
 		this.billingService.nextStage('AmountEntry');
+		this.stage = 'AmountEntry';
 	}
 
-	onConfirm(): void {
-		this.stage = 'ConfirmPay';
-		this.billingService.nextStage('ConfirmPay');
-	}
+	onAddToCart(): void {
+		if (this.selectedMeter) {
+			const cartItem = { 
+				productType: 'Unknown',
+				productReference: this.selectedMeter.meterSerial,
+				amount: this.amount.value
+			};
 
-	onPayment(): void {
-		this.stage = 'Payment';
-		this.billingService.nextStage('Payment');
+			this.localStorageService.setItem('cart', cartItem);
+		}
+		
+		this.stage = 'SelectMeter';
+		this.selectedMeter = null;
+		this.amount.reset();
 	}
 }
