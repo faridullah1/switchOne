@@ -5,8 +5,9 @@
 	justify-content: center;
 
 	.heading {
+		display: flex;
+		justify-content: space-between;
 		margin-bottom: 2rem;
-		text-align: center;
 		width: 100%;
 	}
 

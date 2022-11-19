@@ -44,8 +44,8 @@ export class PrepaidComponent implements OnInit {
 	}
 
 	onSelectMeter(meter: any): void {
-		this.stage = 'MeterAmountEntry';
-		this.billingService.nextStage('MeterAmountEntry');
+		this.stage = 'AmountEntry';
+		this.billingService.nextStage('AmountEntry');
 	}
 
 	onConfirm(): void {
@@ -54,7 +54,7 @@ export class PrepaidComponent implements OnInit {
 	}
 
 	onPayment(): void {
-		this.stage = 'CardDetails';
-		this.billingService.nextStage('CardDetails');
+		this.stage = 'Payment';
+		this.billingService.nextStage('Payment');
 	}
 }

@@ -1,0 +1,117 @@
+.container {
+	display: flex;
+	flex-direction: column;
+
+	.table {
+		margin: 2rem 0;
+		border: 1px solid #f9ffff;
+		padding: 2rem 1rem;
+
+		th {
+			text-align: left;
+			padding-bottom: .5rem;
+		}
+
+		td {
+			color: #c5cfdc;
+			padding-bottom: .5rem;
+		}
+	}
+
+	.total-row {
+		display: flex;
+		justify-content: flex-end;
+		border-bottom: 2px solid #f9ffff;
+		padding-bottom: 2rem;
+		margin-bottom: 2rem;	
+
+		.total {
+			display: flex;
+			margin-right: 2rem;
+
+			.label {
+				margin-right: 2rem;
+			}
+		}
+	}
+
+	.no-data {
+		text-align: center;
+		font-size: 1.1rem;
+		margin: 4rem 0;
+	}
+
+	.card-details-form {
+		width: 70%;
+		margin: 2rem 0;
+		color: #c5cfdc;
+
+		.form-group {
+			display: flex;
+			flex-direction: column;
+
+			label {
+				color: #fff;
+				margin-bottom: .5rem;
+				font-weight: 400;
+			}
+
+			&:not(:last-child) {
+				margin-right: 4rem;
+			}
+
+			.field {
+				background: none;
+				border: 1px solid #f9ffff;
+				padding: 1rem 2rem;
+				margin-bottom: 1rem;
+				outline: none;
+				color: #c5cfdc;
+
+				&::placeholder {
+					color: #c5cfdc;
+				}
+			}
+		}
+
+		.row {
+			display: flex;
+			justify-content: flex-end;
+			margin-bottom: 1rem;
+
+			.label {
+				width: 40%;
+				text-align: right;
+				margin-right: 6rem;
+			}
+		}
+	}
+
+	.actions {
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	.btn-delete {
+		background-color: #d84444;
+		border: none;
+		padding: 0.8rem 2rem;
+		color: #fff;
+		font-size: 1.6rem;
+		cursor: pointer;
+	}
+
+	.btn {
+		background-color: var(--color-gray);
+		border: none;
+		padding: 0.8rem 2rem;
+		cursor: pointer;
+		color: #5d5d5d;
+		font-size: 1.6rem;
+
+		&:disabled {
+			opacity: .4;
+			cursor: default;
+		}
+	}
+}

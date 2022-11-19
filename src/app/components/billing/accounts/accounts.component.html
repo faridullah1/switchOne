@@ -9,7 +9,7 @@
 				</div>
 			</div>
 	
-			<div class="pointing-left gray-left pointing-right" [ngClass]="stage === 'BillAmountEntry' ? 'selected' : 'non-selected'">
+			<div class="pointing-left gray-left pointing-right" [ngClass]="stage === 'AmountEntry' ? 'selected' : 'non-selected'">
 				<div class="pointer">Confirm</div>
 			</div>
 		</div>
@@ -55,7 +55,7 @@
 		</ng-template>
 	</ng-container>
 
-	<ng-container *ngIf="stage === 'BillAmountEntry'">
+	<ng-container *ngIf="stage === 'AmountEntry'">
 		<div class="bill-payment">
 			<div class="labels">
 				<div class="col">Biller</div>

@@ -1,0 +1,99 @@
+<div class="container">
+	<h2 class="mb-3">{{ stage === 'Summary' ? 'Pay bills' : 'Card details' }}</h2>
+
+	<div class="billing-tabs">
+		<div class="pointing-right" [ngClass]="stage === 'Summary' ? 'selected' : 'non-selected'">
+			<div class="pointer">
+				Summary
+			</div>
+		</div>
+
+		<div class="pointing-left gray-left pointing-right" [ngClass]="stage === 'Payment' ? 'selected' : 'non-selected'">
+			<div class="pointer">Payment</div>
+		</div>
+	</div>
+
+	<ng-container *ngIf="stage === 'Summary'">
+		<ng-container *ngIf="cart.length > 0; else noCartItem">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Product Type</th>
+						<th>Product Reference</th>
+						<th>Amount</th>
+						<th></th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr *ngFor="let item of cart;">
+						<td>{{ item.productType }}</td>
+						<td>{{ item.productReference }}</td>
+						<td>{{ item.amount }}</td>
+
+						<td class="text-right">
+							<button class="btn-delete" (click)="onDeleteCartItem(item)">Delete</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<div class="total-row">
+				<div class="total">
+					<label class="label">Total</label>
+					<div class="value">{{ getTotal() }}</div>
+				</div>
+			</div>
+
+			<div class="actions">
+				<button class="btn" (click)="onProceedToPayment()">Proceed to payment</button>
+			</div>
+		</ng-container>
+
+		<ng-template #noCartItem>
+			<div class="no-data">Cart is empty</div>
+		</ng-template>
+	</ng-container>
+
+	<ng-container *ngIf="stage === 'Payment'">
+		<form [formGroup]="cardDetailForm" class="card-details-form">
+			<div class="flex">
+				<div class="form-group">
+					<label for="cardNumber">Card Number</label>
+					<input id="cardNumber" class="field" formControlName="cardNumber" placeholder="Card Number">
+				</div>
+
+				<div class="form-group">
+					<label for="cvcNumber">CVC Number</label>
+					<input id="cvcNumber" class="field" formControlName="cvcNumber" placeholder="CVC Number">
+				</div>
+			</div>
+
+			<div class="flex">
+				<div class="form-group">
+					<label for="cardHolder">Card Holder</label>
+					<input id="cardHolder" class="field" formControlName="cardHolder" placeholder="Card Holder">
+				</div>
+
+				<div class="form-group">
+					<label for="expiryDate">Expiry Date</label>
+					<input id="expiryDate" class="field" formControlName="expiryDate" placeholder="Expiry Date">
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="label">Number of Items</div>
+				<div class="value">{{ cart.length }}</div>
+			</div>
+
+			<div class="row">
+				<div class="label">Total</div>
+				<div class="value">{{ getTotal() }}</div>
+			</div>
+
+			<div class="actions">
+				<button class="btn" (click)="onContinue()">Continue</button>
+			</div>
+		</form>
+	</ng-container>
+</div>

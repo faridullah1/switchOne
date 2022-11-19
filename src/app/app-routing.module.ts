@@ -12,6 +12,8 @@ import { HowToUseComponent } from './components/how-to-use/how-to-use.component'
 import { SecurityComponent } from './components/security/security.component';
 import { PrepaidComponent } from './components/billing/prepaid/prepaid.component';
 import { PaymentMethodComponent } from './components/billing/payment-method/payment-method.component';
+import { CheckoutComponent } from './components/billing/checkout/checkout.component';
+
 
 const routes: Routes = [
 	{ 
@@ -27,6 +29,7 @@ const routes: Routes = [
 					{ path: '', redirectTo: 'accounts', pathMatch: 'prefix' },
 					{ path: 'accounts', component: AccountsComponent },
 					{ path: 'prepaid', component: PrepaidComponent },
+					{ path: 'checkout', component: CheckoutComponent },
 				]
 			},
 		]

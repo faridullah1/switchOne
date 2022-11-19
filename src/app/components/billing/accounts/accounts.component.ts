@@ -29,11 +29,7 @@ export class AccountsComponent implements OnInit {
 	}
 
 	getBills(): void {
-		const data = JSON.parse(this.localStorageService.getItems('bills'));
-		
-		if (data) {
-			this.bills = data;
-		}
+		this.bills = JSON.parse(this.localStorageService.getItems('bills')) || [];
 	}
 
 	onAddBill(): void {
@@ -53,8 +49,8 @@ export class AccountsComponent implements OnInit {
 	}
 
 	onContinue(): void {
-		this.billingService.nextStage('BillAmountEntry');
-		this.stage = 'BillAmountEntry';
+		this.billingService.nextStage('AmountEntry');
+		this.stage = 'AmountEntry';
 	}
 
 	onAddToCart(): void {
@@ -64,10 +60,8 @@ export class AccountsComponent implements OnInit {
 				productReference: this.selectedBill.accountHolder,
 				amount: this.amount.value
 			};
-	
-			const cart = JSON.parse(this.localStorageService.getItems('cart')) || [];
-			cart.push(cartItem);
-			this.localStorageService.setItem('cart', cart);
+
+			this.localStorageService.setItem('cart', cartItem);
 		}
 		
 		this.stage = 'SelectBill';
