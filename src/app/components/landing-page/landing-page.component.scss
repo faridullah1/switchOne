@@ -1,5 +1,5 @@
 .content {
-    height: calc(100% - 17.3rem);
+	height: 100%;
 
    	.mask {
         display: flex;
@@ -37,9 +37,6 @@
   	}
 
 	.tabs {
-		position: relative;
-		top: 40%;
-		left: 25%;
 		width: fit-content;
 	}
 
@@ -72,6 +69,8 @@
 	}
 
 	.tab-content-container {
+		justify-content: center;
+
 		@media screen and (max-width: 1000px) {
 			display: flex;
 			justify-content: center;
@@ -79,14 +78,21 @@
 	}
 
 	.billing-content {
-		width: 60%;
-		position: relative;
-		top: 39.5%;
-		left: 25%;
+		justify-content: center;
 	}
 }
 
 .billing {
+	display: flex;
+    flex-direction: column;
+	align-items: center;
 	background-color: var(--color-primary);
-	height: 90vh;
+
+	min-height: calc(100vh - 21rem);
+
+	.billing-main-container {
+		min-height: inherit;
+		width: 60%;
+		margin: 15rem 0;
+	}
 }

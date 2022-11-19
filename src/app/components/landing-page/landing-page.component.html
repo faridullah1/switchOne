@@ -3,16 +3,18 @@
         <img src="/assets/images/family.jpg" alt="Family">
     </div>
 
-    <ul [ngClass]="path === 'billing' ? 'tabs' : 'tabs-abs'">
-        <li class="tab" 
-			[routerLink]="tab.route" 
-			routerLinkActive="active" 
-			*ngFor="let tab of tabs">
-			{{ tab.title }}
-		</li>
-    </ul>
+   <div class="flex flex-column" [class.billing-main-container]="path === 'billing'">
+		<ul [ngClass]="path === 'billing' ? 'tabs' : 'tabs-abs'">
+			<li class="tab" 
+				[routerLink]="tab.route" 
+				routerLinkActive="active" 
+				*ngFor="let tab of tabs">
+				{{ tab.title }}
+			</li>
+		</ul>
 
-	<div class="tab-content-container" [class.billing-content]="path === 'billing'">
-		<router-outlet></router-outlet>
-	</div>
+		<div class="tab-content-container" [class.billing-content]="path === 'billing'">
+			<router-outlet></router-outlet>
+		</div>
+   </div>
 </div>

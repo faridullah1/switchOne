@@ -32,7 +32,11 @@
 			border: 1px solid #c5cfdc;
 			color: #c5cfdc;
 			outline: none;
-		}	
+
+			&::placeholder {
+				color: #c5cfdc;
+			}
+		}
 	}
 
 	.actions {

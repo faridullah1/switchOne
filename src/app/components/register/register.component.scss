@@ -1,4 +1,6 @@
 .register {
+    min-height: calc(100vh - 29rem);
+
 	display: flex;
 	justify-content: center;
 	padding: 4rem 0;
@@ -6,6 +8,7 @@
 
 	.stepper {
 		width: 50%;
+		height: 100%;
 	}
 
 	.form {
