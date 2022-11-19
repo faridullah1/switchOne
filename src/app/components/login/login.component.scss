@@ -11,9 +11,34 @@
         justify-content: center;
         flex-direction: column;
         gap: 1.6rem;
+		width: 20%;
+
+		@media screen and (max-width: 1200px) {
+			width: 30%;
+		}
+
+		@media screen and (max-width: 800px) {
+			width: 40%;
+		}
+
+		@media screen and (max-width: 600px) {
+			width: 60%;
+		}
+
+		@media screen and (max-width: 400px) {
+			width: 75%;
+		}
 
         input {
-            padding: 1.5rem 6rem;
+            padding: 1.5rem 2rem;
+			background: none;
+			outline: none;
+			color: #fff;
+			border: 1px solid #cbe2ea;
+
+			&::placeholder {
+				color: #fff;
+			}
         }
     
         h2 {
@@ -24,7 +49,7 @@
         }
 
         p {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             color: #fff;
             text-align: center;
             margin: 0;
@@ -32,6 +57,7 @@
     }
 
 	.link {
+		font-size: 1.3rem;
 		cursor: pointer;
 
 		&:hover {
@@ -40,6 +66,8 @@
 	}
 
 	.btn {
+		padding: .5rem 0;
+
 		&:disabled {
 			color: #7e7e7e !important;
 		}
