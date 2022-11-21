@@ -2,53 +2,47 @@
 	<mat-stepper class="stepper" [linear]="true" #stepper>
 		<mat-step [stepControl]="basicInfoForm">
 			<form [formGroup]="basicInfoForm" class="form">
-				<ng-template matStepLabel>Fill out your name</ng-template>
+				<ng-template matStepLabel class="stepper-label">Fill out your name</ng-template>
 
-				<mat-form-field appearance="fill">
-					<mat-label>First Name</mat-label>
-					<input matInput placeholder="Enter First Name" (keydown)="alphabetOnly($event)" formControlName="firstName" required>
-					<mat-error *ngIf="basicInfoForm.get('firstName')?.hasError('required')">
+				<div class="form-group">
+					<input class="form-control" (keydown)="alphabetOnly($event)" required placeholder="First Name" formControlName="firstName">
+					<mat-error *ngIf="basicInfoForm.get('firstName')?.hasError('required') && basicInfoForm.get('firstName')?.touched">
 						First Name is required
 					</mat-error>
-				</mat-form-field>
+				</div>
 
-				<mat-form-field appearance="fill">
-					<mat-label>Last Name</mat-label>
-					<input matInput placeholder="Enter Last Name" (keydown)="alphabetOnly($event)" formControlName="lastName" required>
-					<mat-error *ngIf="basicInfoForm.get('lastName')?.hasError('required')">
+				<div class="form-group">
+					<input class="form-control" (keydown)="alphabetOnly($event)" required placeholder="Last Name" formControlName="lastName">
+					<mat-error *ngIf="basicInfoForm.get('lastName')?.hasError('required') && basicInfoForm.get('lastName')?.touched">
 						Last Name is required
 					</mat-error>
-				</mat-form-field>
+				</div>
 
-				<mat-form-field appearance="fill">
-					<mat-label>Cell Number</mat-label>
-					<input matInput placeholder="Enter Cell Number" (keydown)="numericOnly($event)" formControlName="cellNumber" required>
-					
-					<mat-error *ngIf="basicInfoForm.get('cellNumber')?.invalid">
+				<div class="form-group">
+					<input class="form-control" (keydown)="numericOnly($event)" required placeholder="Cell Number" formControlName="cellNumber">
+					<mat-error *ngIf="basicInfoForm.get('cellNumber')?.invalid && basicInfoForm.get('cellNumber')?.touched">
 						<div *ngIf="basicInfoForm.get('cellNumber')?.hasError('required')">Cell Number is required</div>
 						<div *ngIf="basicInfoForm.get('cellNumber')?.hasError('minlength')">Cell Number must be minimum 10 digits</div>
 						<div *ngIf="basicInfoForm.get('cellNumber')?.hasError('maxlength')">Cell Number must be maximum 10 digits</div>
 					</mat-error>
-				</mat-form-field>
+				</div>
 
-				<mat-form-field appearance="fill">
-					<mat-label>Id Number</mat-label>
-					<input matInput placeholder="Enter Id Number" (keydown)="numericOnly($event)" formControlName="idNumber" required>
-					<mat-error *ngIf="basicInfoForm.get('idNumber')?.invalid">
+				<div class="form-group">
+					<input class="form-control" (keydown)="numericOnly($event)" placeholder="Id Number" formControlName="idNumber" required>
+					<mat-error *ngIf="basicInfoForm.get('idNumber')?.invalid && basicInfoForm.get('idNumber')?.touched">
 						<div *ngIf="basicInfoForm.get('idNumber')?.hasError('required')">Id Numer is required</div>
 						<div *ngIf="basicInfoForm.get('idNumber')?.hasError('minlength')">Id Numer must be minimum 13 digits</div>
 						<div *ngIf="basicInfoForm.get('idNumber')?.hasError('maxlength')">Id Numer must be maximum 13 digits</div>
 					</mat-error>
-				</mat-form-field>
+				</div>
 
-				<mat-form-field appearance="fill">
-					<mat-label>Email</mat-label>
-					<input matInput type="email" placeholder="Enter Email" formControlName="email" required>
-					<mat-error *ngIf="basicInfoForm.get('email')?.invalid">
+				<div class="form-group">
+					<input class="form-control" type="email" placeholder="Email" formControlName="email" required>
+					<mat-error *ngIf="basicInfoForm.get('email')?.invalid && basicInfoForm.get('email')?.touched">
 						<div *ngIf="basicInfoForm.get('email')?.hasError('required')">Email is required</div>
 						<div *ngIf="basicInfoForm.get('email')?.hasError('email')">Email is invalid</div>
 					</mat-error>
-				</mat-form-field>
+				</div>
 
 				<div class="mt-3">
 					<button mat-raised-button class="mr-3" color="warn" routerLink="/">Cancel</button>
@@ -78,31 +72,28 @@
 		
 		<mat-step [stepControl]="credentialsForm" label="Final Details">
 			<form [formGroup]="credentialsForm" class="form">
-				<mat-form-field appearance="fill">
-					<mat-label>User Name</mat-label>
-					<input matInput placeholder="Enter Username" formControlName="userName" required>
-					<mat-error *ngIf="credentialsForm.get('userName')?.hasError('required')">
+
+				<div class="form-group">
+					<input class="form-control" placeholder="Username" formControlName="userName" required>
+					<mat-error *ngIf="credentialsForm.get('userName')?.hasError('required') && credentialsForm.get('userName')?.touched">
 						Username is required
 					</mat-error>
-				</mat-form-field>
-	
-				<mat-form-field appearance="fill">
-					<mat-label>Password</mat-label>
-					<input matInput type="password" placeholder="Enter Password" formControlName="password" required>
-					<mat-error *ngIf="credentialsForm.get('password')?.hasError('required')">
+				</div>
+
+				<div class="form-group">
+					<input class="form-control" type="password" placeholder="Password" formControlName="password" required>
+					<mat-error *ngIf="credentialsForm.get('password')?.hasError('required') && credentialsForm.get('password')?.touched">
 						Password is required
 					</mat-error>
-				</mat-form-field>
-	
-				<mat-form-field appearance="fill">
-					<mat-label>Repeat Password</mat-label>
-					<input matInput type="password" placeholder="Enter Repeat Password" formControlName="confirmPassword" required>
-				
-					<mat-error *ngIf="credentialsForm.get('confirmPassword')?.invalid">
+				</div>
+
+				<div class="form-group">
+					<input class="form-control" type="password" placeholder="Repeat Password" formControlName="confirmPassword" required>
+					<mat-error *ngIf="credentialsForm.get('confirmPassword')?.hasError('required') && credentialsForm.get('confirmPassword')?.touched">
 						<div *ngIf="credentialsForm.get('confirmPassword')?.hasError('required')">Repeat Password is required</div>
 						<div *ngIf="credentialsForm.get('confirmPassword')?.hasError('confirmedValidator')">Repeat Password must match with password</div>
 					</mat-error>
-				</mat-form-field>
+				</div>
 			</form>
 
 			<div class="mt-3">
