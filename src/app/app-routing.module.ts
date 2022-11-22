@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { BillingComponent } from './components/billing/billing.component';
 import { AccountsComponent } from './components/billing/accounts/accounts.component';
@@ -13,6 +12,8 @@ import { SecurityComponent } from './components/security/security.component';
 import { PrepaidComponent } from './components/billing/prepaid/prepaid.component';
 import { PaymentMethodComponent } from './components/billing/payment-method/payment-method.component';
 import { CheckoutComponent } from './components/billing/checkout/checkout.component';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { LandingPageComponentOld } from './components/landing-page-2/landing-page.component';
 
 
 const routes: Routes = [

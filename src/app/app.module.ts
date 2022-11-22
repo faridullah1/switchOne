@@ -17,7 +17,6 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { FeaturesComponent } from './components/features/features.component';
 import { HowToUseComponent } from './components/how-to-use/how-to-use.component';
@@ -29,6 +28,8 @@ import { PrepaidComponent } from './components/billing/prepaid/prepaid.component
 import { PaymentMethodComponent } from './components/billing/payment-method/payment-method.component';
 import { AddMeterComponent } from './components/billing/add-meter/add-meter.component';
 import { CheckoutComponent } from './components/billing/checkout/checkout.component';
+import { LandingPageComponentOld } from './components/landing-page-2/landing-page.component';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { CheckoutComponent } from './components/billing/checkout/checkout.compon
     LoginComponent,
     RegisterComponent,
     LandingPageComponent,
+	LandingPageComponentOld,
     ContactUsComponent,
     FeaturesComponent,
     HowToUseComponent,

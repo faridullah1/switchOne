@@ -1,21 +1,4 @@
-<div class="landing-page">
-	<div class="content">
-		<ul class="tabs">
-			<li class="tab" 
-				[routerLink]="tab.route" 
-				routerLinkActive="active" 
-				*ngFor="let tab of tabs">
-				{{ tab.title }}
-			</li>
-		</ul>
-
-		<div class="tab-content-container" [class.billing-content]="path === 'billing'">
-			<router-outlet></router-outlet>
-		</div>
-	</div>
-</div>
-
-<!-- <div class="content" [class.billing]="path === 'billing'">
+<div class="content" [class.billing]="path === 'billing'">
     <div class="mask" *ngIf="path !== 'billing'">
         <img src="/assets/images/family.jpg" alt="Family">
     </div>
@@ -34,4 +17,4 @@
 			<router-outlet></router-outlet>
 		</div>
    </div>
-</div> -->
+</div>
