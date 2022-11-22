@@ -1,10 +1,6 @@
-<div class="content" [class.billing]="path === 'billing'">
-    <div class="mask" *ngIf="path !== 'billing'">
-        <img src="/assets/images/family.jpg" alt="Family">
-    </div>
-
-   <div class="flex flex-column" [class.billing-main-container]="path === 'billing'">
-		<ul [ngClass]="path === 'billing' ? 'tabs' : 'tabs-abs'">
+<div class="landing-page" [class.billing]="path === 'billing'">
+	<div class="content">
+		<ul class="tabs">
 			<li class="tab" 
 				[routerLink]="tab.route" 
 				routerLinkActive="active" 
@@ -12,9 +8,9 @@
 				{{ tab.title }}
 			</li>
 		</ul>
-
+	
 		<div class="tab-content-container" [class.billing-content]="path === 'billing'">
 			<router-outlet></router-outlet>
 		</div>
-   </div>
+	</div>
 </div>
