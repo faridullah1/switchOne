@@ -33,14 +33,14 @@ export class RegisterComponent {
 		}, {validators: [ConfirmedValidator('password', 'confirmPassword')]})
 	}
 
-	alphabetOnly(ev: any): boolean {
+	alphabetOnly(ev: KeyboardEvent): boolean {
 		const allowedKeys = ['Backspace', 'ArrowLeft', 'ArrowRight', 'Tab', ' '];
 		if (allowedKeys.includes(ev.key)) return true;
 
         const letters = /^[a-zA-Z]+$/
-        if (ev.key && ev.key.match(letters))
+        if (ev.key && ev.key.match(letters) != null)
         {
-            return (ev.key.match(letters).length > 0);
+            return ((ev.key.match(letters) as RegExpMatchArray).length > 0);
         }
 
         return false;

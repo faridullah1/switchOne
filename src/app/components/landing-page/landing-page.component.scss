@@ -2,6 +2,14 @@
 	width: 70%;
 	margin: 0 auto;
 
+	@media screen and (max-width: 1000px) {
+		width: 80%;
+	}
+
+	@media screen and (max-width: 400px) {
+		width: 90%;
+	}
+
 	.content {
 		display: flex;
 		flex-direction: column;
@@ -9,6 +17,10 @@
 		min-height: calc(100vh - 21rem);
 		margin-top: 12rem;
 	
+		@media screen and (max-width: 400px) {
+			margin-top: 8rem;
+		}
+
 		.tabs {
 			display: flex;
 			justify-content: flex-start;
@@ -28,7 +40,7 @@
 			background: rgb(241, 234, 234);
 			text-transform: uppercase;
 	
-			@media screen and (max-width: 800px) {
+			@media screen and (max-width: 700px) {
 				padding: .5rem 1rem;
 				font-size: 1.4rem;
 			}

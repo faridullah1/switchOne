@@ -15,13 +15,12 @@
 		.heading {
 			font-size: 2rem;
 			color: var(--color-primary);
-			margin-right: 2rem;
 			font-weight: 600;
 		}
 	}
 
 	.guide {
-		margin: 1rem 0;
+		margin: 2rem 0;
 		font-size: 1.3rem;
 	}
 
@@ -37,5 +36,14 @@
 			margin: 1rem 0;
 			width: 70%;
 		}
+	}
+
+	mat-divider {
+		margin: 0 2rem;
+		border-right-color: rgb(111 116 112 / 80%) !important;
+	}
+
+	.mat-divider.mat-divider-inset {
+		margin-left: 2rem !important;
 	}
 }
