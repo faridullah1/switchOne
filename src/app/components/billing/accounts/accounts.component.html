@@ -1,7 +1,7 @@
 <div class="container">
-	<h2 class="mb-3">Pay Bills</h2>
+	<h2 class="heading">Pay Bills</h2>
 
-	<div class="header">
+	<div class="billing-header">
 		<div class="billing-tabs">
 			<div class="pointing-right" [ngClass]="stage === 'SelectBill' ? 'selected' : 'non-selected'">
 				<div class="pointer">
@@ -14,7 +14,7 @@
 			</div>
 		</div>
 
-		<button class="btn" (click)="onAddBill()">Add Bill</button>
+		<button class="btn btn-blue" (click)="onAddBill()">Add Bill</button>
 	</div>
 
 	<ng-container *ngIf="stage === 'SelectBill'">
@@ -45,8 +45,46 @@
 				</tbody>
 			</table>
 
+			<!-- For mobile screen only -->
+			<div class="billing-non-tabular-data">
+				<div class="bill-rec" *ngFor="let bill of bills;">
+					<div class="data">
+						<div class="row">
+							<div class="col">
+								<div class="label">Biller</div>
+								<div class="value">{{ bill.accountHolder }}</div>
+							</div>
+	
+							<div class="col">
+								<div class="label">Bank</div>
+								<div class="value">{{ bill.bank }}</div>
+							</div>
+						</div>
+	
+						<div class="row flex-column">
+							<div class="label">Account</div>
+							<div class="value">{{ bill.accountNumber }}</div>
+						</div>
+	
+						<div class="row">
+							<div class="col">
+								<div class="label">My reference</div>
+								<div class="value">{{ bill.yourReference }}</div>
+							</div>
+	
+							<div class="col">
+								<div class="label">Their reference</div>
+								<div class="value">{{ bill.theirReference }}</div>
+							</div>
+						</div>
+					</div>
+
+					<button class="btn select-bill" [class.btn-selected]="selectedBill === bill" (click)="onSelectBill(bill)">Select Bill</button>
+				</div>
+			</div>
+
 			<div class="actions">
-				<button class="btn" [disabled]="!selectedBill" (click)="onContinue()">Continue</button>
+				<button class="btn btn-gray" [disabled]="!selectedBill" (click)="onContinue()">Continue</button>
 			</div>
 		</ng-container>
 
@@ -69,7 +107,7 @@
 		</div>
 
 		<div class="actions">
-			<button class="btn" (click)="onAddToCart()" [disabled]="!amount.value">Add to cart</button>
+			<button class="btn btn-gray" (click)="onAddToCart()" [disabled]="!amount.value">Add to cart</button>
 		</div>
 	</ng-container>
 </div>

@@ -1,7 +1,7 @@
 <div class="container">
-	<h2 class="mb-3">Buy Prepaid Tokens</h2>
+	<h2 class="heading">Buy Prepaid Tokens</h2>
 
-	<div class="header">
+	<div class="billing-header">
 		<div class="billing-tabs" *ngIf="stage !== 'Payment'">
 			<div class="pointing-right" [ngClass]="stage === 'SelectMeter' ? 'selected' : 'non-selected'">
 				<div class="pointer">
@@ -14,7 +14,7 @@
 			</div>
 		</div>
 
-		<button class="btn" (click)="onAddMeter()">Add Meter</button>
+		<button class="btn btn-blue" (click)="onAddMeter()">Add Meter</button>
 	</div>
 
 	<ng-container *ngIf="stage === 'SelectMeter'">
@@ -38,6 +38,27 @@
 					</tr>
 				</tbody>
 			</table>
+
+			<!-- For mobile screen only -->
+			<div class="billing-non-tabular-data">
+				<div class="bill-rec" *ngFor="let meter of meters;">
+					<div>
+						<div class="row">
+							<div class="col">
+								<div class="label">Serial Number</div>
+								<div class="value">{{ meter.meterSerial }}</div>
+							</div>
+	
+							<div class="col">
+								<div class="label">Alias</div>
+								<div class="value">{{ meter.alias }}</div>
+							</div>
+						</div>
+					</div>
+
+					<button class="btn select-meter" [class.btn-selected]="selectedMeter === meter" (click)="onSelectMeter(meter)">Select Meter</button>
+				</div>
+			</div>
 
 			<div class="actions">
 				<button class="btn" [disabled]="!selectedMeter" (click)="onContinue()">Continue</button>

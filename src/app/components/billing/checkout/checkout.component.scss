@@ -2,6 +2,29 @@
 	display: flex;
 	flex-direction: column;
 
+	@media screen and (max-width: 750px) {
+		align-items: center;
+	}
+
+	.heading {
+		margin-bottom: 1rem;
+
+		@media screen and (max-width: 500px) {
+			font-size: 1.8rem;
+		}
+	}
+
+	@media screen and (max-width: 750px) {
+		.billing-tabular-data {
+			display: block;
+			width: 100%;
+
+			th,td {
+				width: 30%;
+			}
+		}
+	}
+
 	.total-row {
 		display: flex;
 		justify-content: flex-end;

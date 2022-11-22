@@ -40,7 +40,8 @@ export class PrepaidComponent implements OnInit {
 
 	onAddMeter(): void {
 		const dialog = this.dialog.open(AddMeterComponent, {
-			width: '20%'
+			width: '20%',
+			panelClass: 'add-meter-dlg'
 		});
 
 		dialog.afterClosed().subscribe(resp => {

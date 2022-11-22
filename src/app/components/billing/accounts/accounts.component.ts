@@ -36,7 +36,8 @@ export class AccountsComponent implements OnInit {
 
 	onAddBill(): void {
 		const dialog = this.dialog.open(AddBillComponent, {
-			width: '30%'
+			width: '30%',
+			panelClass: 'add-dlg'
 		});
 
 		dialog.afterClosed().subscribe(resp => {

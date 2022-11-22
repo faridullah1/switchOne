@@ -21,11 +21,23 @@
 		.form-group {
 			display: flex;
 			flex-direction: column;
+			flex: 1;
 		}
 
 		.row {
 			display: flex;
 			align-items: center;
+			flex-wrap: wrap;
+			flex: 0 0 100%;
+
+			@media screen and (max-width: 500px) {
+				flex-direction: column;
+
+				.form-group {
+					margin-right: 0 !important;
+					width: 100%;
+				}
+			}
 		}
 
 		.actions {

@@ -27,6 +27,6 @@ import { LocalStorageService } from "src/app/services/localStorage.service";
 		// Currently I am storing data in local storage, please replace it with server API
 		this.localStorageService.setItem('meters', this.addMeterForm.value);
 		this.billingService.nextStage('SelectMeter');
-		this.dialogRef.close();
+		this.dialogRef.close(true);
 	}
 }

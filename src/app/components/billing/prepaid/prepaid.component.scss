@@ -2,14 +2,24 @@
 	display: flex;
 	flex-direction: column;
 
-	.header {
-		display: flex;
-		justify-content: space-between;
+	@media screen and (max-width: 750px) {
 		align-items: center;
+	}
+
+	.heading {
+		margin-bottom: 1rem;
+
+		@media screen and (max-width: 500px) {
+			font-size: 1.8rem;
+		}
 	}
 
 	.payment {
 		margin: 2rem 0;
+
+		@media screen and (max-width: 750px) {
+			width: 100%;
+		}
 
 		.labels {
 			display: flex;
@@ -36,12 +46,25 @@
 			&::placeholder {
 				color: #c5cfdc;
 			}
+
+			@media screen and (max-width: 750px) {
+				width: 60%;
+			}
 		}
 	}
 
 	.actions {
 		display: flex;
 		justify-content: flex-end;
+		
+		@media screen and (max-width: 750px) {
+			width: 50%;
+			justify-content: flex-start;
+		}
+
+		@media screen and (max-width: 400px) {
+			width: 100%;
+		}
 	}
 
 	.btn {
@@ -57,5 +80,27 @@
 			opacity: .4;
 			cursor: default;
 		}
+
+		@media screen and (max-width: 750px) {
+			width: 100%;
+			margin-top: 1rem;
+			padding: 1.2rem 0;
+		}
+	}
+
+	.select-bill {
+		background-color: #fff !important;
+		color: #7a7f83;
+	}
+
+	.btn-selected {
+		background-color: #1f3856 !important;
+		color: #eee;
+		border: 1px solid #eee;
+	}
+
+	.btn-blue {
+		background-color: #083666 !important;
+		color: #eee;
 	}
 }
