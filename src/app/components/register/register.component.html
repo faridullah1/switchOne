@@ -95,7 +95,7 @@
 
 				<div class="form-group">
 					<input class="form-control" type="password" placeholder="Repeat Password" formControlName="confirmPassword" required>
-					<mat-error *ngIf="credentialsForm.get('confirmPassword')?.hasError('required') && credentialsForm.get('confirmPassword')?.touched">
+					<mat-error *ngIf="credentialsForm.get('confirmPassword')?.invalid && credentialsForm.get('confirmPassword')?.touched">
 						<div *ngIf="credentialsForm.get('confirmPassword')?.hasError('required')">Repeat Password is required</div>
 						<div *ngIf="credentialsForm.get('confirmPassword')?.hasError('confirmedValidator')">Repeat Password must match with password</div>
 					</mat-error>
