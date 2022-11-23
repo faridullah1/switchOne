@@ -69,10 +69,10 @@
 
 	.btn {
 		background-color: var(--color-gray);
+		color: #5d5d5d;
 		border: none;
 		padding: 0.8rem 0;
 		cursor: pointer;
-		color: #5d5d5d;
 		width: 13rem;
 		font-size: 1.6rem;
 
@@ -100,7 +100,12 @@
 	}
 
 	.btn-blue {
-		background-color: #083666 !important;
-		color: #eee;
+		background-color: var(--color-gray);
+		color: #5d5d5d;
+
+		@media screen and (max-width: 750px) {
+			background-color: #083666 !important;
+			color: #eee;
+		}
 	}
 }

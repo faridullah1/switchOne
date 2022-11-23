@@ -25,12 +25,21 @@
 		}
 	}
 
+	@media screen and (max-width: 500px) {
+		.billing-tabular-data {
+			th, td {
+				width: 40%;
+			}
+		}
+	}
+
 	.total-row {
 		display: flex;
 		justify-content: flex-end;
-		border-bottom: 2px solid #f9ffff;
+		border-bottom: 1px solid #f9ffff;
 		padding-bottom: 2rem;
-		margin-bottom: 2rem;	
+		margin-bottom: 2rem;
+		width: 100%;
 
 		.total {
 			display: flex;
@@ -43,17 +52,25 @@
 	}
 
 	.card-details-form {
-		width: 70%;
+		width: 100%;
 		margin: 2rem 0;
 		color: #c5cfdc;
+
+		@media screen and (max-width: 750px) {
+			width: 100%;
+		}
 
 		.form-group {
 			display: flex;
 			flex-direction: column;
-			width: 48%;
+			flex: 1;
 
 			&:not(:last-child) {
-				margin-right: 4rem;
+				margin-right: 2rem;
+
+				@media screen and (max-width: 450px) {
+					margin-right: 0;
+				}
 			}
 
 			label {
@@ -88,7 +105,7 @@
 			}
 
 			.value {
-				width: 10%;
+				width: 15%;
 				text-align: right;
 			}
 		}
@@ -106,6 +123,18 @@
 		color: #fff;
 		font-size: 1.6rem;
 		cursor: pointer;
+
+		@media screen and (max-width: 500px) {
+			display: none;
+		}
+	}
+
+	.delete-icon {
+		display: none;
+
+		@media screen and (max-width: 500px) {
+			display: block;
+		}
 	}
 
 	.btn {

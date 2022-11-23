@@ -51,8 +51,13 @@ export class CheckoutComponent implements OnInit {
 		const index = this.cart.indexOf(item);
 		this.cart.splice(index, 1);
 
-		if (this.cart.length > 0) {
-			this.localStorageService.setItem('cart', this.cart);
+		if (this.cart.length === 1) {
+			this.localStorageService.setItem('cart', this.cart[0]);
+		}
+		else {
+			for (let item of this.cart) {
+				this.localStorageService.setItem('cart', item);
+			}
 		}
 	}
 
