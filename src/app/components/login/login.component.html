@@ -1,4 +1,8 @@
 <div class="login-form">
+	<div class="error-box" *ngIf="errorMessage">
+		{{ errorMessage }}
+	</div>
+
 	<form [formGroup]="theForm" class="form">
 		<h2>Sign In</h2>
 

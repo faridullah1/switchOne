@@ -15,6 +15,7 @@ export class RegisterComponent {
 	basicInfoForm: FormGroup;
 	credentialsForm: FormGroup;
 	terms = new FormControl(null, [Validators.required]);
+	errorMessage: string = '';
 	
 	constructor(private fb: FormBuilder, 
 				private authService: AuthService) 
@@ -52,7 +53,7 @@ export class RegisterComponent {
 
 		this.authService.register(payload).subscribe({
 			next: () => { stepper.next(); },
-			error: (error: any) => console.error(error)
+			error: (error: any) => this.errorMessage = error.message
 		});
 	}
 }

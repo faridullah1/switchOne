@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 	theForm: FormGroup;
+	errorMessage: string = '';
 	
 	constructor(private fb: FormBuilder, 
 				private router: Router,
@@ -27,7 +28,7 @@ export class LoginComponent {
 
 		this.authService.login(payload).subscribe({
 			next: () => this.router.navigateByUrl('/'),
-			error: (error) => console.error(error)
+			error: (error) => this.errorMessage = error.message
 		});
 	}
 }

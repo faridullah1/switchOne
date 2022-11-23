@@ -8,6 +8,14 @@
 	padding: 4rem 0;
 	background-color: var(--color-primary);
 
+	.error-box {
+		border: 1px solid #de2043;
+		color: #de2043;
+		padding: 1rem 2rem;
+		margin-bottom: 1rem;
+	}
+
+	
 	.heading {
 		color: #fff;
 		margin-bottom: 1rem;
