@@ -68,16 +68,12 @@
 
 						<div class="row flex-column">
 							<div class="label">My reference</div>
-							<select [(ngModel)]="bill.yourReference">
-								<option *ngFor="let rec of yourReference">{{ rec }}</option>
-							</select>
+							<input type="text" class="field ref-field" [(ngModel)]="bill.yourReference">
 						</div>
 
 						<div class="row flex-column">
 							<div class="label">Their reference</div>
-							<select [(ngModel)]="bill.theirReference">
-								<option *ngFor="let rec of theirReference">{{ rec }}</option>
-							</select>
+							<input type="text" class="field ref-field" [(ngModel)]="bill.theirReference">
 						</div>
 					</div>
 
@@ -104,7 +100,7 @@
 			
 			<div class="values">
 				<div class="col">{{ this.selectedBill?.accountHolder }}</div>
-				<input class="col field" type="text" placeholder="Ener Amount" [formControl]="amount">
+				<input class="col field" type="text" (keydown)="numericOnly($event)" placeholder="Ener Amount" [formControl]="amount">
 			</div>	
 		</div>
 

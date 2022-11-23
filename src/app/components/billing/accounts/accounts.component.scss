@@ -35,22 +35,6 @@
 			align-items: center;
 			color: #c5cfdc;
 		}
-
-		.field {
-			padding: 1rem 2rem;
-			background: none;
-			border: 1px solid #c5cfdc;
-			color: #c5cfdc;
-			outline: none;
-
-			&::placeholder {
-				color: #c5cfdc;
-			}
-
-			@media screen and (max-width: 750px) {
-				width: 60%;
-			}
-		}	
 	}
 
 	.actions {
@@ -67,16 +51,25 @@
 		}
 	}
 
-	select {
+	.field {
+		padding: 1rem 2rem;
 		background: none;
-		color: #fff;
-		padding: 1rem;
-		margin-top: .6rem;
+		border: 1px solid #c5cfdc;
+		color: #c5cfdc;
 		outline: none;
 
-		option {
-			color: #000;
+		&::placeholder {
+			color: #c5cfdc;
 		}
+
+		@media screen and (max-width: 750px) {
+			width: 60%;
+		}
+	}
+
+	.ref-field {
+		margin-top: 0.8rem;
+		width: calc(100% - 4rem);
 	}
 
 	.btn {

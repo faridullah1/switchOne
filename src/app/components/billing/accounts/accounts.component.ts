@@ -5,6 +5,7 @@ import { Bill, BillingStages } from 'src/app/models';
 import { AddBillComponent } from '../add-bill/add-bill.component';
 import { BillingService } from 'src/app/services/billing.service';
 import { LocalStorageService } from 'src/app/services/localStorage.service';
+import { Helpers } from 'src/app/common/helpers';
 
 
 @Component({
@@ -72,5 +73,9 @@ export class AccountsComponent implements OnInit {
 		this.stage = 'SelectBill';
 		this.selectedBill = null;
 		this.amount.reset();
+	}
+
+	numericOnly(ev: KeyboardEvent): boolean {
+		return Helpers.numericOnly(ev);
 	}
 }

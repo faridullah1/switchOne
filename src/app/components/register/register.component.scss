@@ -2,9 +2,16 @@
     min-height: calc(100vh - 29rem);
 
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
+	align-items: center;
 	padding: 4rem 0;
 	background-color: var(--color-primary);
+
+	.heading {
+		color: #fff;
+		margin-bottom: 1rem;
+	}
 
 	.stepper {
 		width: 50%;

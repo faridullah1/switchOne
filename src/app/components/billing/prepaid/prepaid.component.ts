@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { Helpers } from 'src/app/common/helpers';
 import { LocalStorageService } from 'src/app/services/localStorage.service';
 import { AddMeterComponent } from '../add-meter/add-meter.component';
 import { BillingStages } from './../../../models';
@@ -74,5 +75,9 @@ export class PrepaidComponent implements OnInit {
 		this.stage = 'SelectMeter';
 		this.selectedMeter = null;
 		this.amount.reset();
+	}
+
+	numericOnly(ev: KeyboardEvent): boolean {
+		return Helpers.numericOnly(ev);
 	}
 }

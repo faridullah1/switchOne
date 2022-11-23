@@ -79,7 +79,7 @@
 			
 			<div class="values">
 				<div class="col">{{ this.selectedMeter?.alias }}</div>
-				<input class="col field" type="text" placeholder="Ener Amount" [formControl]="amount">
+				<input class="col field" type="text" (keydown)="numericOnly($event)" placeholder="Ener Amount" [formControl]="amount">
 			</div>	
 		</div>
 

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatStepper } from '@angular/material/stepper';
+import { Helpers } from 'src/app/common/helpers';
 import { ConfirmedValidator } from 'src/app/common/validators';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -34,30 +35,12 @@ export class RegisterComponent {
 	}
 
 	alphabetOnly(ev: KeyboardEvent): boolean {
-		const allowedKeys = ['Backspace', 'ArrowLeft', 'ArrowRight', 'Tab', ' '];
-		if (allowedKeys.includes(ev.key)) return true;
-
-        const letters = /^[a-zA-Z]+$/
-        if (ev.key && ev.key.match(letters) != null)
-        {
-            return ((ev.key.match(letters) as RegExpMatchArray).length > 0);
-        }
-
-        return false;
+		return Helpers.alphabetOnly(ev);
 	}
 
 	numericOnly(ev: any): boolean
     {
-		const allowedKeys = ['Backspace', 'ArrowLeft', 'ArrowRight', 'Tab'];
-		if (allowedKeys.includes(ev.key)) return true;
-
-        const letters = /^[0-9]+$/;
-        if (ev.key && ev.key.match(letters))
-        {
-            return (ev.key.match(letters).length > 0);
-        }
-
-        return false;
+		return Helpers.numericOnly(ev);
     }
 
 	onSubmit(stepper: MatStepper): void {
