@@ -67,6 +67,18 @@
 		}
 	}
 
+	select {
+		background: none;
+		color: #fff;
+		padding: 1rem;
+		margin-top: .6rem;
+		outline: none;
+
+		option {
+			color: #000;
+		}
+	}
+
 	.btn {
 		background-color: var(--color-gray);
 		color: #5d5d5d;

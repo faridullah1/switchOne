@@ -2,7 +2,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 // Routing Module
@@ -54,6 +54,7 @@ import { CheckoutComponent } from './components/billing/checkout/checkout.compon
     AppRoutingModule,
     BrowserAnimationsModule,
 	ReactiveFormsModule,
+	FormsModule,
 	HttpClientModule,
 
 	MaterialModule

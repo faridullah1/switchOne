@@ -9,6 +9,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { MatRadioModule } from '@angular/material/radio';
 	MatIconModule,
 	MatDialogModule,
 	MatSelectModule,
-	MatRadioModule
+	MatRadioModule,
+	MatDatepickerModule,
+	MatNativeDateModule 
   ],
   exports: [
 	MatDividerModule,
@@ -34,7 +38,12 @@ import { MatRadioModule } from '@angular/material/radio';
 	MatIconModule,
 	MatDialogModule,
 	MatSelectModule,
-	MatRadioModule
-  ]
+	MatRadioModule,
+	MatDatepickerModule,
+	MatNativeDateModule 
+  ],
+  providers: [  
+    MatDatepickerModule,  
+  ],
 })
 export class MaterialModule { }

@@ -18,6 +18,8 @@ export class AccountsComponent implements OnInit {
 	selectedBill: Bill | null = null;
 
 	amount = new FormControl(null);
+	yourReference: string[] = ['Clothing Account'];
+	theirReference: string[] = ['Test Account'];
 
   	constructor(private dialog: MatDialog,
 				private localStorageService: LocalStorageService,

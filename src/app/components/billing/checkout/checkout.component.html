@@ -60,7 +60,7 @@
 
 	<ng-container *ngIf="stage === 'Payment'">
 		<form [formGroup]="cardDetailForm" class="card-details-form">
-			<div class="flex flex-wrap">
+			<div class="fields">
 				<div class="form-group">
 					<label for="cardNumber">Card Number</label>
 					<input id="cardNumber" class="field" formControlName="cardNumber" placeholder="Card Number">
@@ -72,7 +72,7 @@
 				</div>
 			</div>
 
-			<div class="flex flex-wrap">
+			<div class="fields">
 				<div class="form-group">
 					<label for="cardHolder">Card Holder</label>
 					<input id="cardHolder" class="field" formControlName="cardHolder" placeholder="Card Holder">
@@ -80,7 +80,9 @@
 
 				<div class="form-group">
 					<label for="expiryDate">Expiry Date</label>
-					<input id="expiryDate" class="field" formControlName="expiryDate" placeholder="Expiry Date">
+					<input class="field" formControlName="expiryDate" placeholder="Expiry Date" [matDatepicker]="picker">
+					<mat-datepicker-toggle class="date-picker-icon" matIconSuffix [for]="picker"></mat-datepicker-toggle>
+					<mat-datepicker #picker></mat-datepicker>
 				</div>
 			</div>
 

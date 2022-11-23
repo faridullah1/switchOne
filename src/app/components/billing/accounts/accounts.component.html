@@ -65,17 +65,19 @@
 							<div class="label">Account</div>
 							<div class="value">{{ bill.accountNumber }}</div>
 						</div>
-	
-						<div class="row">
-							<div class="col">
-								<div class="label">My reference</div>
-								<div class="value">{{ bill.yourReference }}</div>
-							</div>
-	
-							<div class="col">
-								<div class="label">Their reference</div>
-								<div class="value">{{ bill.theirReference }}</div>
-							</div>
+
+						<div class="row flex-column">
+							<div class="label">My reference</div>
+							<select [(ngModel)]="bill.yourReference">
+								<option *ngFor="let rec of yourReference">{{ rec }}</option>
+							</select>
+						</div>
+
+						<div class="row flex-column">
+							<div class="label">Their reference</div>
+							<select [(ngModel)]="bill.theirReference">
+								<option *ngFor="let rec of theirReference">{{ rec }}</option>
+							</select>
 						</div>
 					</div>
 
